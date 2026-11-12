@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Rahul Kumar — Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f3ef; --surface:#ffffff; --surface2:#eceae3; --ink:#16181d; --muted:#5b5f6a; --line:#ddd9cf;
+    --accent:#b45309; --accent-ink:#92400e; --accent-bg:#fef3c7; --teal:#0f766e; --teal-bg:#ccfbf1;
+    --nav-bg:rgba(244,243,239,.92); --shadow:0 12px 32px rgba(22,24,29,.10); --radius:14px;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#121316; --surface:#1b1d21; --surface2:#24262b; --ink:#f1efe9; --muted:#a7abb6; --line:#33363d;
+      --accent:#f59e0b; --accent-ink:#fbbf24; --accent-bg:#3a2c07; --teal:#2dd4bf; --teal-bg:#083f3a;
+      --nav-bg:rgba(18,19,22,.92); --shadow:0 12px 32px rgba(0,0,0,.45); color-scheme:dark; }
+  }
+  *{box-sizing:border-box}
+  html{scrollbar-gutter:stable}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  button,[role="button"],a.btn{min-height:40px}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  /* NAV */
+  header{position:sticky;top:0;z-index:40;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .mark{width:38px;height:38px;border-radius:9px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;letter-spacing:.02em;flex:none}
+  .brand b{font-size:15px;letter-spacing:-.01em;display:block;line-height:1.1}
+  .brand span{font-size:12px;color:var(--muted);display:block;line-height:1.2}
+  nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+  nav.tabs button{appearance:none;border:1px solid transparent;background:transparent;color:var(--muted);font:inherit;font-weight:700;font-size:13.5px;padding:8px 13px;border-radius:999px;cursor:pointer}
+  nav.tabs button:hover{color:var(--ink)}
+  nav.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+  /* VIEWS */
+  .view{display:none;padding:34px 0 56px}
+  .view.active{display:block}
+  h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(32px,5.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:0 0 14px;font-weight:600}
+  h2{font-size:22px;letter-spacing:-.02em;margin:0 0 8px}
+  h3{font-size:15px;margin:0 0 6px}
+  .lede{font-size:17px;color:var(--muted);max-width:640px;margin:0}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px;font-weight:600}
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1.35fr .85fr;gap:28px;align-items:start}
+  /* HOME INTRO — v2 minimal */
+  .intro{display:flex;gap:26px;align-items:center;max-width:760px}
+  .photo-ph{flex:none;width:132px;height:132px;border-radius:16px;border:1.5px dashed var(--line);background:var(--surface);display:grid;place-items:center;text-align:center;color:var(--muted)}
+  .photo-ph span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;line-height:1.5;padding:0 10px}
+  .intro h1{margin:0 0 8px}
+  .intro .role{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);font-weight:600;margin:0 0 10px}
+  .intro .lede{max-width:560px}
+  .hero-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .hero-card h3{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .fact{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px dashed var(--line);font-size:13.5px}
+  .fact:first-of-type{border-top:none}
+  .fact span{color:var(--muted)} .fact b{text-align:right;font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .chip{font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+  .chip.hot{background:var(--accent-bg);border-color:transparent;color:var(--accent-ink)}
+  .chip.cool{background:var(--teal-bg);border-color:transparent;color:var(--teal)}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:14px;padding:11px 18px;border-radius:10px;border:1px solid var(--ink);cursor:pointer;font-family:inherit}
+  .btn.primary{background:var(--ink);color:var(--bg)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .stat b{font-size:22px;letter-spacing:-.02em;display:block}
+  .stat span{font-size:12px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:38px 0 16px;flex-wrap:wrap}
+  .section-head p{color:var(--muted);margin:0;font-size:14px;max-width:520px}
+  /* PROJECT CARDS — Tyler-style grid, new palette */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-align:left;padding:0;cursor:pointer;font:inherit;color:inherit;width:100%;transition:transform .15s ease, box-shadow .15s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .card:focus-visible,.btn:focus-visible,nav.tabs button:focus-visible,.thumb:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .thumb{height:168px;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .thumb svg{width:82%;max-width:300px;height:auto}
+  .thumb .status{position:absolute;top:10px;left:10px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:4px 8px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+  .card-body{padding:16px 18px 18px}
+  .card-body h3{font-size:17px;letter-spacing:-.01em}
+  .card-body p{margin:0;color:var(--muted);font-size:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:4px 7px;border-radius:6px;background:var(--surface2);color:var(--muted)}
+  .open-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:13px;font-weight:800;color:var(--accent-ink)}
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .skill ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+  .skill li{margin:5px 0}
+  .bar-row{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .bar-row p{color:var(--muted);font-size:14px;margin:4px 0 0}
+  /* RESUME / CONTACT */
+  .two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .panel p,.panel li{color:var(--muted);font-size:14.5px}
+  .panel ul{padding-left:18px;margin:8px 0}
+  .timeline{border-left:2px solid var(--line);margin:6px 0 0 4px;padding-left:18px}
+  .tl{position:relative;padding:0 0 18px}
+  .tl::before{content:"";position:absolute;left:-24px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+  .tl b{display:block;font-size:14.5px;color:var(--ink)} .tl span{font-size:12.5px;color:var(--muted);font-family:"IBM Plex Mono",monospace}
+  .tl p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+  .link-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px dashed var(--line)}
+  .link-row:first-of-type{border-top:none}
+  .link-row small{display:block;color:var(--muted);font-size:12px}
+  .note{font-size:13px;color:var(--muted);background:var(--surface2);border-radius:10px;padding:12px 14px;margin-top:14px}
+  footer{border-top:1px solid var(--line);padding:20px 0 30px;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  /* MODAL — Ahren-style detail popup */
+  dialog{border:none;padding:0;background:transparent;max-width:min(880px,94vw);width:100%}
+  dialog::backdrop{background:rgba(10,10,12,.62);backdrop-filter:blur(3px)}
+  .modal{background:var(--surface);color:var(--ink);border-radius:18px;overflow:hidden;max-height:88vh;overflow-y:auto;box-shadow:var(--shadow)}
+  .modal-hero{padding:22px 24px 0;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+  .modal-hero h2{font-size:26px;letter-spacing:-.02em}
+  .modal-hero p{color:var(--muted);margin:4px 0 0;font-size:14.5px;max-width:560px}
+  .close{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:18px;cursor:pointer}
+  .gallery{display:grid;grid-template-columns:1.5fr 1fr;gap:10px;padding:18px 24px 0}
+  .g-main,.g-side{border:1px solid var(--line);border-radius:12px;background:var(--surface2);display:grid;place-items:center;min-height:170px;padding:14px;text-align:center}
+  .g-side{min-height:80px}
+  .g-col{display:grid;gap:10px}
+  .gallery svg{width:100%;max-width:340px;height:auto}
+  .gallery figcaption{font-size:12px;color:var(--muted);margin-top:8px;font-family:"IBM Plex Mono",monospace}
+  .modal-body{padding:20px 24px 26px;display:grid;grid-template-columns:1.25fr .75fr;gap:22px}
+  .modal-body h3{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-top:18px}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p,.modal-body li{font-size:14.5px;color:var(--muted)}
+  .modal-body ul{padding-left:18px;margin:6px 0}
+  .spec{width:100%;border-collapse:collapse;font-size:13.5px}
+  .spec td{padding:8px 0;border-top:1px dashed var(--line);vertical-align:top}
+  .spec td:first-child{color:var(--muted);padding-right:12px;width:44%}
+  .spec td:last-child{font-weight:700;text-align:right}
+  @media (max-width:820px){
+    .hero,.two,.modal-body{grid-template-columns:1fr}
+    .intro{flex-direction:column;align-items:flex-start;gap:18px}
+    .photo-ph{width:104px;height:104px}
+    .grid{grid-template-columns:1fr}
+    .skill-grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+    .gallery{grid-template-columns:1fr}
+    .brand span{display:none}
+    nav.tabs button{padding:8px 10px;font-size:13px}
+    .view{padding-top:24px}
+  }
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#" data-goto="home"><span class="mark">RK</span><span><b>Rahul Kumar</b><span>Mechanical Engineering · Boston University ’27</span></span></a>
+    <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+      <button role="tab" aria-selected="true" data-view="home">Home</button>
+      <button role="tab" aria-selected="false" data-view="projects">Projects</button>
+      <button role="tab" aria-selected="false" data-view="skills">Skills</button>
+      <button role="tab" aria-selected="false" data-view="resume">Résumé</button>
+      <button role="tab" aria-selected="false" data-view="contact">Contact</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section class="view active" id="view-home" aria-label="Home">
+    <div class="intro">
+      <div class="photo-ph" role="img" aria-label="Photo placeholder — Rahul will add his photo here"><span>Photo<br>to add</span></div>
+      <div>
+        <h1>Rahul Kumar</h1>
+        <p class="role">Mechanical Engineering · Concentration in Manufacturing Engineering · Boston University ’27 · Boston, MA</p>
+        <p class="lede">Mechanical Engineering student at Boston University, Class of 2027, with a concentration in manufacturing engineering. I build embedded systems and mechatronic prototypes, focused on EVs and controls.</p>
+        <div class="actions">
+          <button class="btn primary" data-goto="projects">See the projects →</button>
+          <button class="btn ghost" data-goto="resume">View résumé</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <div><h2>Featured project</h2></div>
+      <button class="btn ghost" data-goto="projects">All projects →</button>
+    </div>
+    <button class="card" data-project="utensil" style="width:100%">
+      <span class="thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">
+        <span class="status">● IN PROGRESS</span>
+        <svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff" /><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22" /><path d="M60 30 l10 10 M60 40 l10-10" stroke="#0f766e"/></svg>
+      </span>
+      <span class="card-body" style="display:block">
+        <h3>Self-Stabilizing Eating Utensil</h3>
+        <p>An IMU + servo handle that counteracts 4–9 Hz hand tremor.</p>
+        <span class="tags"><span class="tag">IMU · LSM6DSOX</span><span class="tag">XIAO ESP32-S3</span><span class="tag">Servo control</span><span class="tag">Power design</span></span>
+        <span class="open-row"><span>Open project detail</span><span>↗</span></span>
+      </span>
+    </button>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="view" id="view-projects" aria-label="Projects">
+    <p class="kicker">Projects</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Four builds. Click any card for the full story.</h1>
+    <p class="lede" style="margin-bottom:22px">Each card is just the preview — problem, approach, and result live in the popup, with extra diagrams, so this page stays short and scannable.</p>
+    <p class="note" style="margin-bottom:18px"><b>Draft lineup:</b> these four entries are sketched from your portfolio brief so you can judge the design. Confirm, cut, or swap them once the site is set up — each project is just one card + popup.</p>
+    <div class="grid" id="projectGrid"></div>
+    <p class="note">How to read these: <b>Problem → What I built → Result.</b> Numbers are the ones from the actual builds — frequencies, intervals, resolutions, and budgets — not rounded marketing claims.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="view" id="view-skills" aria-label="Skills">
+    <p class="kicker">Skills</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">What I can actually do in the lab.</h1>
+    <p class="lede" style="margin-bottom:22px">Grouped the way I use them on projects — design it, wire it, code it, print it, test it.</p>
+    <div class="skill-grid">
+      <div class="skill"><h3>🛠 Design &amp; CAD</h3><ul><li>Mechanical design for handheld / enclosure-scale devices</li><li>Design for 3D printing — tolerances, fits, iteration</li><li>BOM building and component selection under budget + policy constraints</li></ul></div>
+      <div class="skill"><h3>⚡ Embedded &amp; Electronics</h3><ul><li>ESP32 (WROOM-32, XIAO ESP32-S3) firmware in Arduino / C</li><li>Sensors: IMU (LSM6DSOX), DHT climate sensing</li><li>Enterprise Wi-Fi debugging — WPA2-Enterprise, PEAP / MSCHAPv2 on eduroam</li><li>Battery systems: 1S Li-ion, protection boards, contact charging</li></ul></div>
+      <div class="skill"><h3>🎛 Controls &amp; Software</h3><ul><li>Servo actuation and stabilization concepts for 4–9 Hz disturbance rejection</li><li>Live web dashboards — JSON polling, history charts, gauges</li><li>Rotary-encoder UI (EC11) + round LCD menu systems</li><li>IR capture / replay for closed-loop fan control</li></ul></div>
+    </div>
+    <div class="bar-row"><h3>Tools on the bench right now</h3><p>Bambu Lab P1S · Arduino Uno R3 + starter kit (28BYJ-48 stepper / ULN2003) · ESP32 DevKit (CP2102) · Soldering + hand tools · Git / GitHub Pages for this site.</p></div>
+  </section>
+
+  <!-- RESUME -->
+  <section class="view" id="view-resume" aria-label="Résumé">
+    <p class="kicker">Résumé — summary view</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Rahul Kumar</h1>
+    <p class="lede" style="margin-bottom:22px">Mechanical Engineering, Boston University — Class of 2027. This page is the web summary; drop your one-page PDF in here when it’s final.</p>
+    <div class="two">
+      <div class="panel">
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="tl"><span>2023 — MAY 2027</span><b>B.S. Mechanical Engineering — Boston University</b><p>Concentration in manufacturing engineering. Final semester: part-time, 3 classes / 10 credits. Focus in mechatronics and electromechanical systems.</p></div>
+          <div class="tl"><span>ONGOING</span><b>Self-directed embedded systems study</b><p>ESP32 project ladder: enterprise Wi-Fi → web server → climate dashboard → rotary-knob controller.</p></div>
+        </div>
+        <h3 style="margin-top:10px">Project experience</h3>
+        <ul>
+          <li><b style="color:var(--ink)">Self-stabilizing utensil</b> — IMU + servo tremor cancellation (4–9 Hz), 30–50 g load, cylindrical-cell power, charging dock.</li>
+          <li><b style="color:var(--ink)">ESP32 climate dashboard</b> — live temp / humidity dashboard on BU eduroam, 5-second JSON polling, 4-hour history.</li>
+          <li><b style="color:var(--ink)">Rotary-knob controller</b> — 240×240 round LCD over an EC11 encoder; turn to browse, press to select.</li>
+          <li><b style="color:var(--ink)">P1S workshop setup</b> — network bridging and print-workflow mods for a dorm-network printer.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel">
+          <h3>Add your PDF here</h3>
+          <p>When your one-page résumé PDF is ready, this is its home on the GitHub Pages version — recruiters expect one click to download.</p>
+          <div class="note">Placeholder on purpose: no PDF was provided for this draft, so there’s no fake download button. Add the file as <span class="mono">resume.pdf</span> in the repo and link it here.</div>
+          <h3 style="margin-top:18px">Publishing — GitHub Pages, step by step</h3>
+          <p>New to GitHub? This is the whole route, in order:</p>
+          <ul>
+            <li><b style="color:var(--ink)">1.</b> Create a free account at github.com</li>
+            <li><b style="color:var(--ink)">2.</b> New repository named <span class="mono">&lt;your-username&gt;.github.io</span> — that exact name is what turns on Pages</li>
+            <li><b style="color:var(--ink)">3.</b> Upload this page as <span class="mono">index.html</span> (Add file → Upload files — no command line needed)</li>
+            <li><b style="color:var(--ink)">4.</b> Add <span class="mono">resume.pdf</span> and your real project photos the same way</li>
+            <li><b style="color:var(--ink)">5.</b> Open <span class="mono">https://&lt;your-username&gt;.github.io</span> — it’s live in about a minute</li>
+            <li><b style="color:var(--ink)">6.</b> Later: point a custom domain (~$12/yr) at it in Settings → Pages</li>
+          </ul>
+          <p class="note">Project lineup is a draft: these are the four builds from your Nov 11 brief. Tell me which projects you actually want featured and they swap in — each one is just a card + popup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" id="view-contact" aria-label="Contact">
+    <p class="kicker">Contact</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Let’s talk engineering.</h1>
+    <p class="lede" style="margin-bottom:22px">Best for internships, post-graduation roles (graduating spring 2027), and project conversations — especially EVs and mechatronics.</p>
+    <div class="two">
+      <div class="panel">
+        <div class="link-row"><div><b>Email</b><small>Add your preferred email in the GitHub version</small></div><span class="tag">TO ADD</span></div>
+        <div class="link-row"><div><b>GitHub</b><small>Add your github.com profile link</small></div><span class="tag">TO ADD</span></div>
+        <div class="link-row"><div><b>LinkedIn</b><small>Add your LinkedIn profile link</small></div><span class="tag">TO ADD</span></div>
+        <p class="note">Your email, GitHub username, and LinkedIn URL weren’t in the brief, so they’re left as honest placeholders here rather than invented links. Send them over and they slot straight in.</p>
+      </div>
+      <div class="panel">
+        <h3>What I’m interested in</h3>
+        <ul>
+          <li>Mechanical design roles in EV development</li>
+          <li>Mechatronics / electromechanical product work</li>
+          <li>Test, fixtures, and hardware validation</li>
+        </ul>
+        <h3 style="margin-top:16px">Based in</h3>
+        <p>Boston, MA — Boston University.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Rahul Kumar — Engineering Portfolio · Draft built from scratch</span><span class="mono">Home / Projects / Skills / Résumé / Contact</span></div></footer>
+
+<!-- DETAIL MODAL -->
+<dialog id="detail" aria-labelledby="mTitle">
+  <div class="modal">
+    <div class="modal-hero">
+      <div><p class="kicker" id="mKicker" style="margin-bottom:6px"></p><h2 id="mTitle"></h2><p id="mSub"></p></div>
+      <button class="close" id="closeBtn" aria-label="Close project detail">✕</button>
+    </div>
+    <div class="gallery" id="mGallery"></div>
+    <div class="modal-body">
+      <div id="mMain"></div>
+      <div><h3>Specs &amp; status</h3><table class="spec" id="mSpecs"></table><div class="tags" id="mTags" style="margin-top:14px"></div></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+var PROJECTS = [
+  { id:"utensil", status:"IN PROGRESS", title:"Self-Stabilizing Eating Utensil", sub:"Counteracting hand tremor so a utensil tip stays steady — sensing, actuation, and power in one handle.",
+    desc:"An IMU + servo handle that counteracts 4–9 Hz hand tremor.",
+    tags:["IMU · LSM6DSOX","XIAO ESP32-S3","Servo control","1S Li-ion"],
+    bg:"linear-gradient(135deg,#fef3c7,#fde68a)", ink:"#92400e",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff"/><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22"/></svg>',
+    gallery:[["Handle + actuation concept","Wave = tremor in · flat tip = tremor out. Servos correct in the handle, before the tip."],
+             ["Power constraint","Cylindrical 14500 / 18350 cells only — no LiPo pouches on campus. Button-top cells need a holder or welded tabs, never direct solder."],
+             ["Charging dock","Contact / pogo-pin dock planned so the utensil charges by being set down — no cable fiddling with tremor."]],
+    problem:"Essential tremor sits in the 4–9 Hz band and makes eating with a normal utensil frustrating. A stabilizing utensil has to cancel that motion at the tip, stay light enough to hold, and be safe to power and charge every day.",
+    built:["Seeed XIAO ESP32-S3 as the controller with an Adafruit LSM6DSOX IMU sensing handle motion","Servo actuation sized for a ~30–50 g utensil load, starting with a 1-axis budget prototype (~$44) before committing to 2 axes (~$58 budget / ~$132 performance lane)","1S cylindrical Li-ion power with a protection board (NTC-input boards shortlisted) and a planned contact-charging dock"],
+    result:["Component research and BOM complete; Li-ion cells ordered Nov 6, 2026 and in shipping","Open decisions kept explicit: 1-axis first vs 2 axes, 14500 vs 18350 (depends on handle CAD), budget vs performance servo lane","Bench-test path identified using a donor fan cell (3.65 V, 4700 mAh) while ordered cells ship"],
+    specs:[["Status","In progress — parts stage"],["Tremor band","4–9 Hz"],["Tip load","~30–50 g"],["Controller","Seeed XIAO ESP32-S3"],["IMU","Adafruit LSM6DSOX"],["Power","1S cylindrical Li-ion"],["Prototype cost","~$44 (1-axis budget)"]] },
+  { id:"climate", status:"WORKING", title:"ESP32 Climate Dashboard", sub:"A live temperature & humidity dashboard that runs on BU’s enterprise Wi-Fi — the hard part was the network, not the sensor.",
+    desc:"A live temperature & humidity dashboard running on BU’s enterprise Wi-Fi.",
+    tags:["ESP32-WROOM-32","DHT sensor","eduroam PEAP","Web dashboard"],
+    bg:"linear-gradient(135deg,#ccfbf1,#99f6e4)", ink:"#0f766e",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M24 96 L84 62 L134 78 L194 34 L254 48 L296 22"/><circle cx="194" cy="34" r="5" fill="#fff"/><rect x="24" y="14" width="72" height="30" rx="8" fill="#fff"/><text x="36" y="35" font-family="monospace" font-size="15" fill="#0f766e" stroke="none">72.4°</text></svg>',
+    gallery:[["Live dashboard","Hero temperature card + humidity ring gauge + stat tiles, refreshed by JSON polling every 5 s."],
+             ["History view","Started at 30 minutes, extended to 4 hours — 15-second samples, 960 points, NTP clock-time axis labels."],
+             ["The eduroam fix","PEAP / MSCHAPv2 with full-email identity and manual station config. Verified working from a phone on eduroam."]],
+    problem:"A climate logger is easy on home Wi-Fi and genuinely hard on a university network: BU eduroam is WPA2-Enterprise, and a $10 microcontroller has to authenticate like a laptop before it can serve a single page.",
+    built:["Generic 30-pin ESP32 DevKit (WROOM-32, CP2102 USB-serial) running a web server with a DHT sensor — after fixing swapped DATA / VCC wires","Enterprise Wi-Fi recipe: PEAP / MSCHAPv2, identity and anonymous identity as login@bu.edu, radius.bu.edu, certificate validation off in the final working sketch","Dashboard redesign: hero temperature card, humidity ring gauge, stat tiles, history charts, iPad-friendly two-column layout, dark-mode toggle"],
+    result:["Working end-to-end and verified from a phone over eduroam on Oct 23, 2026 — no client isolation where tested","Live updates every 5 seconds; 4 hours of history at 15-second sampling","Camera upgrade honestly scoped out: this board has no camera connector and no PSRAM — it would need an ESP32-CAM or XIAO ESP32S3 Sense instead"],
+    specs:[["Status","Working"],["Board","ESP32-WROOM-32 DevKit"],["Network","eduroam · WPA2-Enterprise"],["Polling","JSON every 5 s"],["History","4 hrs · 960 points"],["Sensor","DHT (temp + humidity)"]] },
+  { id:"knob", status:"IN DESIGN", title:"Rotary-Knob Menu Controller", sub:"A round display mounted over a rotary encoder — turn to browse, press to select. Tactile UI, no touchscreen.",
+    desc:"A round display over a rotary encoder — turn to browse, press to select.",
+    tags:["GC9A01 round LCD","EC11 encoder","ESP32","UI design"],
+    bg:"linear-gradient(135deg,#e0e7ff,#c7d2fe)", ink:"#3730a3",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#3730a3" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="160" cy="60" r="42" fill="#fff"/><circle cx="160" cy="60" r="26"/><path d="M160 38 v-8 M138 60 h-8 M182 60 h8" /><path d="M118 22 a52 52 0 0 1 30-8" stroke-dasharray="4 6"/><text x="148" y="66" font-family="monospace" font-size="13" fill="#3730a3" stroke="none">MENU</text></svg>',
+    gallery:[["Track A hardware","Waveshare 1.28″ round LCD module (240×240, GC9A01) — $14.99 — running on the current ESP32 board. True OLED deferred to phase 2."],
+             ["The encoder","Bourns PEC11R-4220F-S0024 — 24 PPR EC11-class encoder with push switch, $2.69 from DigiKey. About $18 in parts before shipping."],
+             ["Interaction model","One control does everything: rotate = move through menu, press = select. Designed to be usable without looking down."]],
+    problem:"Touchscreens are the default answer for small-device menus, but a single physical knob is faster, works by feel, and is more satisfying — if the display and the control are designed as one object instead of two parts bolted together.",
+    built:["Full spec written (Track A): round GC9A01 LCD coaxial with an EC11-class encoder on the existing ESP32 DevKit","Parts shortlist verified Oct 24, 2026: Waveshare 240×240 1.28″ module + Bourns PEC11R encoder with push switch","Menu architecture planned around rotate-to-cycle / press-to-select, with an OLED upgrade path as phase 2"],
+    result:["Spec and verified parts list complete — about $18 before shipping","No parts purchased yet; this is the next build after the climate dashboard","Chosen over bigger project ideas (reaction wheel, full climate station) because it reuses the board and skills already proven"],
+    specs:[["Status","Spec complete"],["Display","1.28″ GC9A01 · 240×240"],["Control","EC11 · 24 PPR + push"],["Parts cost","~$18 before shipping"],["Platform","Current ESP32 board"]] },
+  { id:"p1s", status:"ONGOING", title:"Bambu Lab P1S — Workshop Setup", sub:"Making a home printer work properly on a campus network and a dorm floor — networking, workflow, and vibration.",
+    desc:"Getting a 2.4 GHz-only printer onto campus Wi-Fi, plus workflow and vibration fixes.",
+    tags:["Bambu Lab P1S","ESP32 NAT router","Networking","Workflow"],
+    bg:"linear-gradient(135deg,#ffedd5,#fed7aa)", ink:"#9a3412",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#9a3412" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="96" y="18" width="128" height="84" rx="10" fill="#fff"/><rect x="116" y="36" width="88" height="40" rx="6"/><path d="M116 90 h88 M160 76 v14"/><path d="M40 60 h34 M246 60 h34" stroke-dasharray="4 5"/></svg>',
+    gallery:[["The constraint","The P1S only does 2.4 GHz home Wi-Fi — it cannot join eduroam directly (unlike the X1E). A travel router was considered and declined."],
+             ["The bridge","ESP32 NAT router: PEAP eduroam uplink + its own WPA2 access point for the printer, in cloud mode so prints can be sent from anywhere."],
+             ["The trade-off, stated plainly","Cloud mode costs LAN Only Mode and the local MQTT dashboard. Setup walkthrough paused at the web-installer step (192.168.4.1 config)."]],
+    problem:"A P1S in a dorm hits three problems at once: it can’t authenticate to enterprise Wi-Fi, it vibrates through the floor to the room below, and every add-on (like a touchscreen) is one firmware update away from breaking.",
+    built:["ESP32 NAT bridge approach selected: esp32_nat_router firmware, Wi-Fi Uplink variant, ESP32 joins eduroam via PEAP and rebroadcasts a private WPA2 network for the printer","Vibration options priced: Rubber-Cal washer/dryer mat 29″×32″ at $30 (cheapest, largest) vs DiversiTech MP-18 exact-fit pad at $42.49","Panda Touch 5″ touchscreen evaluated (~$53) — with the firmware-compatibility caveat checked against the printer before any order"],
+    result:["Bridge route chosen and setup started; no travel router purchased","No mods bought yet — each one gated on a check (firmware version, BU IT policy on personal routers) rather than impulse-ordered","This project is the testbed that feeds printed parts to the other three builds"],
+    specs:[["Status","Ongoing setup"],["Printer","Bambu Lab P1S"],["Bridge","ESP32 NAT router"],["Mode","Cloud (no LAN Only)"],["Vibration pick","Rubber-Cal mat · $30"]] }
+];
+
+var grid = document.getElementById('projectGrid');
+PROJECTS.forEach(function(p){
+  var b = document.createElement('button'); b.className='card'; b.setAttribute('data-project', p.id);
+  b.innerHTML = '<span class="thumb" style="background:'+p.bg+'"><span class="status">● '+p.status+'</span>'+p.art+'</span>'+
+    '<span class="card-body" style="display:block"><h3>'+p.title+'</h3><p>'+p.desc+'</p>'+
+    '<span class="tags">'+p.tags.map(function(t){return '<span class="tag">'+t+'</span>'}).join('')+'</span>'+
+    '<span class="open-row"><span>Open project detail</span><span>↗</span></span></span>';
+  grid.appendChild(b);
+});
+
+var dialog = document.getElementById('detail');
+function openProject(id){
+  var p = PROJECTS.find(function(x){return x.id===id}); if(!p) return;
+  document.getElementById('mKicker').textContent = p.status + ' · PROJECT DETAIL';
+  document.getElementById('mTitle').textContent = p.title;
+  document.getElementById('mSub').textContent = p.sub;
+  document.getElementById('mGallery').innerHTML =
+    '<figure class="g-main" style="margin:0"><div>'+p.art+'<figcaption>'+p.gallery[0][0]+' — '+p.gallery[0][1]+'</figcaption></div></figure>'+
+    '<div class="g-col">'+ p.gallery.slice(1).map(function(g){return '<figure class="g-side" style="margin:0"><div><b style="font-size:13.5px">'+g[0]+'</b><figcaption>'+g[1]+'</figcaption></div></figure>'}).join('') +'</div>';
+  document.getElementById('mMain').innerHTML =
+    '<h3>The problem</h3><p>'+p.problem+'</p>'+
+    '<h3>What I built</h3><ul>'+p.built.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+
+    '<h3>Result &amp; where it stands</h3><ul>'+p.result.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+  document.getElementById('mSpecs').innerHTML = p.specs.map(function(s){return '<tr><td>'+s[0]+'</td><td>'+s[1]+'</td></tr>'}).join('');
+  document.getElementById('mTags').innerHTML = p.tags.map(function(t){return '<span class="tag">'+t+'</span>'}).join('');
+  if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
+  document.getElementById('closeBtn').focus();
+}
+document.addEventListener('click', function(e){
+  var card = e.target.closest('[data-project]'); if(card){ openProject(card.getAttribute('data-project')); return; }
+  var go = e.target.closest('[data-goto]'); if(go){ e.preventDefault(); showView(go.getAttribute('data-goto')); }
+});
+document.getElementById('closeBtn').addEventListener('click', function(){ dialog.close(); });
+dialog.addEventListener('click', function(e){ if(e.target===dialog) dialog.close(); });
+
+function showView(name){
+  document.querySelectorAll('.view').forEach(function(v){ v.classList.toggle('active', v.id==='view-'+name); });
+  document.querySelectorAll('nav.tabs button').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-view')===name ? 'true':'false'); });
+  window.scrollTo({top:0});
+}
+document.querySelectorAll('nav.tabs button').forEach(function(b){ b.addEventListener('click', function(){ showView(b.getAttribute('data-view')); }); });
+</script>
+</body>
+</html>
