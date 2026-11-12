@@ -49,6 +49,13 @@
   .kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 12px;font-weight:600}
   /* HERO */
   .hero{display:grid;grid-template-columns:1.35fr .85fr;gap:28px;align-items:start}
+  /* HOME INTRO — v2 minimal */
+  .intro{display:flex;gap:26px;align-items:center;max-width:760px}
+  .photo-ph{flex:none;width:132px;height:132px;border-radius:16px;border:1.5px dashed var(--line);background:var(--surface);display:grid;place-items:center;text-align:center;color:var(--muted)}
+  .photo-ph span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;line-height:1.5;padding:0 10px}
+  .intro h1{margin:0 0 8px}
+  .intro .role{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);font-weight:600;margin:0 0 10px}
+  .intro .lede{max-width:560px}
   .hero-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
   .hero-card h3{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
   .fact{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px dashed var(--line);font-size:13.5px}
@@ -130,6 +137,8 @@
   .spec td:last-child{font-weight:700;text-align:right}
   @media (max-width:820px){
     .hero,.two,.modal-body{grid-template-columns:1fr}
+    .intro{flex-direction:column;align-items:flex-start;gap:18px}
+    .photo-ph{width:104px;height:104px}
     .grid{grid-template-columns:1fr}
     .skill-grid{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr}
@@ -144,9 +153,9 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#" data-goto="overview"><span class="mark">RK</span><span><b>Rahul Kumar</b><span>Mechanical Engineering · Boston University ’27</span></span></a>
+    <a class="brand" href="#" data-goto="home"><span class="mark">RK</span><span><b>Rahul Kumar</b><span>Mechanical Engineering · Boston University ’27</span></span></a>
     <nav class="tabs" role="tablist" aria-label="Portfolio sections">
-      <button role="tab" aria-selected="true" data-view="overview">Overview</button>
+      <button role="tab" aria-selected="true" data-view="home">Home</button>
       <button role="tab" aria-selected="false" data-view="projects">Projects</button>
       <button role="tab" aria-selected="false" data-view="skills">Skills</button>
       <button role="tab" aria-selected="false" data-view="resume">Résumé</button>
@@ -156,41 +165,23 @@
 </header>
 
 <main class="wrap">
-  <!-- OVERVIEW -->
-  <section class="view active" id="view-overview" aria-label="Overview">
-    <div class="hero">
+  <!-- HOME -->
+  <section class="view active" id="view-home" aria-label="Home">
+    <div class="intro">
+      <div class="photo-ph" role="img" aria-label="Photo placeholder — Rahul will add his photo here"><span>Photo<br>to add</span></div>
       <div>
-        <p class="kicker">Boston, MA · Class of 2027</p>
-        <h1>I build small machines that sense, think, and move.</h1>
-        <p class="lede">Mechanical engineering student at Boston University focused on mechatronics and EVs. I like projects where the CAD, the electronics, and the code all have to agree with each other — and I test until they do.</p>
-        <div class="chips">
-          <span class="chip hot">Mechatronics</span><span class="chip">Embedded systems</span><span class="chip cool">EV interest</span><span class="chip">Controls / PID</span><span class="chip">3D printing</span>
-        </div>
+        <h1>Rahul Kumar</h1>
+        <p class="role">Mechanical Engineering · Concentration in Manufacturing Engineering · Boston University ’27 · Boston, MA</p>
+        <p class="lede">Mechanical Engineering student at Boston University, Class of 2027, with a concentration in manufacturing engineering. I build embedded systems and mechatronic prototypes, focused on EVs and controls.</p>
         <div class="actions">
           <button class="btn primary" data-goto="projects">See the projects →</button>
           <button class="btn ghost" data-goto="resume">View résumé</button>
         </div>
-        <div class="stats">
-          <div class="stat"><b>4</b><span>Featured builds, from tremor-assist to IoT dashboards</span></div>
-          <div class="stat"><b>4–9 Hz</b><span>Tremor band the stabilizing utensil is designed to cancel</span></div>
-          <div class="stat"><b>5 s</b><span>Live polling interval on the ESP32 climate dashboard</span></div>
-          <div class="stat"><b>240 × 240</b><span>Round LCD resolution on the rotary-knob controller</span></div>
-        </div>
       </div>
-      <aside class="hero-card" aria-label="At a glance">
-        <h3>At a glance</h3>
-        <div class="fact"><span>School</span><b>Boston University</b></div>
-        <div class="fact"><span>Major</span><b>Mechanical Engineering</b></div>
-        <div class="fact"><span>Graduating</span><b>Spring 2027</b></div>
-        <div class="fact"><span>Focus</span><b>Mechatronics · EVs</b></div>
-        <div class="fact"><span>Workshop</span><b>Bambu Lab P1S · ESP32 lab</b></div>
-        <div class="fact"><span>Looking for</span><b>Engineering roles after graduation</b></div>
-        <p class="note" style="margin-top:14px">Boston-based senior graduating in May 2027, looking for mechanical design and mechatronics roles — especially in EV development — where hardware, firmware, and testing meet.</p>
-      </aside>
     </div>
 
     <div class="section-head">
-      <div><h2>Featured project</h2><p>The build that ties together sensing, actuation, power, and product constraints.</p></div>
+      <div><h2>Featured project</h2></div>
       <button class="btn ghost" data-goto="projects">All projects →</button>
     </div>
     <button class="card" data-project="utensil" style="width:100%">
@@ -200,7 +191,7 @@
       </span>
       <span class="card-body" style="display:block">
         <h3>Self-Stabilizing Eating Utensil</h3>
-        <p>An IMU + servo utensil handle that counteracts 4–9 Hz hand tremor, with a contact-charging dock and campus-safe cylindrical cells. Click for the full breakdown, specs, and diagrams.</p>
+        <p>An IMU + servo handle that counteracts 4–9 Hz hand tremor.</p>
         <span class="tags"><span class="tag">IMU · LSM6DSOX</span><span class="tag">XIAO ESP32-S3</span><span class="tag">Servo control</span><span class="tag">Power design</span></span>
         <span class="open-row"><span>Open project detail</span><span>↗</span></span>
       </span>
@@ -239,7 +230,7 @@
       <div class="panel">
         <h3>Education</h3>
         <div class="timeline">
-          <div class="tl"><span>2023 — MAY 2027</span><b>B.S. Mechanical Engineering — Boston University</b><p>Final semester: part-time, 3 classes / 10 credits. Focus in mechatronics and electromechanical systems.</p></div>
+          <div class="tl"><span>2023 — MAY 2027</span><b>B.S. Mechanical Engineering — Boston University</b><p>Concentration in manufacturing engineering. Final semester: part-time, 3 classes / 10 credits. Focus in mechatronics and electromechanical systems.</p></div>
           <div class="tl"><span>ONGOING</span><b>Self-directed embedded systems study</b><p>ESP32 project ladder: enterprise Wi-Fi → web server → climate dashboard → rotary-knob controller.</p></div>
         </div>
         <h3 style="margin-top:10px">Project experience</h3>
@@ -297,7 +288,7 @@
   </section>
 </main>
 
-<footer><div class="wrap"><span>Rahul Kumar — Engineering Portfolio · Draft built from scratch</span><span class="mono">Overview / Projects / Skills / Résumé / Contact</span></div></footer>
+<footer><div class="wrap"><span>Rahul Kumar — Engineering Portfolio · Draft built from scratch</span><span class="mono">Home / Projects / Skills / Résumé / Contact</span></div></footer>
 
 <!-- DETAIL MODAL -->
 <dialog id="detail" aria-labelledby="mTitle">
@@ -317,7 +308,7 @@
 <script>
 var PROJECTS = [
   { id:"utensil", status:"IN PROGRESS", title:"Self-Stabilizing Eating Utensil", sub:"Counteracting hand tremor so a utensil tip stays steady — sensing, actuation, and power in one handle.",
-    desc:"IMU + servos in the handle counteract 4–9 Hz tremor for a 30–50 g load, powered by cylindrical cells (LiPo pouches are banned on campus) with a contact-charging dock.",
+    desc:"An IMU + servo handle that counteracts 4–9 Hz hand tremor.",
     tags:["IMU · LSM6DSOX","XIAO ESP32-S3","Servo control","1S Li-ion"],
     bg:"linear-gradient(135deg,#fef3c7,#fde68a)", ink:"#92400e",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff"/><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22"/></svg>',
@@ -329,7 +320,7 @@ var PROJECTS = [
     result:["Component research and BOM complete; Li-ion cells ordered Nov 6, 2026 and in shipping","Open decisions kept explicit: 1-axis first vs 2 axes, 14500 vs 18350 (depends on handle CAD), budget vs performance servo lane","Bench-test path identified using a donor fan cell (3.65 V, 4700 mAh) while ordered cells ship"],
     specs:[["Status","In progress — parts stage"],["Tremor band","4–9 Hz"],["Tip load","~30–50 g"],["Controller","Seeed XIAO ESP32-S3"],["IMU","Adafruit LSM6DSOX"],["Power","1S cylindrical Li-ion"],["Prototype cost","~$44 (1-axis budget)"]] },
   { id:"climate", status:"WORKING", title:"ESP32 Climate Dashboard", sub:"A live temperature & humidity dashboard that runs on BU’s enterprise Wi-Fi — the hard part was the network, not the sensor.",
-    desc:"DHT sensor → ESP32 web page with a hero temperature card, humidity ring gauge, and history charts — polling a JSON feed every 5 seconds, after solving eduroam’s WPA2-Enterprise login.",
+    desc:"A live temperature & humidity dashboard running on BU’s enterprise Wi-Fi.",
     tags:["ESP32-WROOM-32","DHT sensor","eduroam PEAP","Web dashboard"],
     bg:"linear-gradient(135deg,#ccfbf1,#99f6e4)", ink:"#0f766e",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M24 96 L84 62 L134 78 L194 34 L254 48 L296 22"/><circle cx="194" cy="34" r="5" fill="#fff"/><rect x="24" y="14" width="72" height="30" rx="8" fill="#fff"/><text x="36" y="35" font-family="monospace" font-size="15" fill="#0f766e" stroke="none">72.4°</text></svg>',
@@ -341,7 +332,7 @@ var PROJECTS = [
     result:["Working end-to-end and verified from a phone over eduroam on Oct 23, 2026 — no client isolation where tested","Live updates every 5 seconds; 4 hours of history at 15-second sampling","Camera upgrade honestly scoped out: this board has no camera connector and no PSRAM — it would need an ESP32-CAM or XIAO ESP32S3 Sense instead"],
     specs:[["Status","Working"],["Board","ESP32-WROOM-32 DevKit"],["Network","eduroam · WPA2-Enterprise"],["Polling","JSON every 5 s"],["History","4 hrs · 960 points"],["Sensor","DHT (temp + humidity)"]] },
   { id:"knob", status:"IN DESIGN", title:"Rotary-Knob Menu Controller", sub:"A round display mounted over a rotary encoder — turn to browse, press to select. Tactile UI, no touchscreen.",
-    desc:"A 1.28″ 240×240 round LCD sits over an EC11 encoder with push switch. Turning cycles the menu, pressing selects — a physical controller built on the ESP32 already on the bench.",
+    desc:"A round display over a rotary encoder — turn to browse, press to select.",
     tags:["GC9A01 round LCD","EC11 encoder","ESP32","UI design"],
     bg:"linear-gradient(135deg,#e0e7ff,#c7d2fe)", ink:"#3730a3",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#3730a3" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="160" cy="60" r="42" fill="#fff"/><circle cx="160" cy="60" r="26"/><path d="M160 38 v-8 M138 60 h-8 M182 60 h8" /><path d="M118 22 a52 52 0 0 1 30-8" stroke-dasharray="4 6"/><text x="148" y="66" font-family="monospace" font-size="13" fill="#3730a3" stroke="none">MENU</text></svg>',
@@ -353,7 +344,7 @@ var PROJECTS = [
     result:["Spec and verified parts list complete — about $18 before shipping","No parts purchased yet; this is the next build after the climate dashboard","Chosen over bigger project ideas (reaction wheel, full climate station) because it reuses the board and skills already proven"],
     specs:[["Status","Spec complete"],["Display","1.28″ GC9A01 · 240×240"],["Control","EC11 · 24 PPR + push"],["Parts cost","~$18 before shipping"],["Platform","Current ESP32 board"]] },
   { id:"p1s", status:"ONGOING", title:"Bambu Lab P1S — Workshop Setup", sub:"Making a home printer work properly on a campus network and a dorm floor — networking, workflow, and vibration.",
-    desc:"ESP32 NAT bridge to get a 2.4 GHz-only printer onto eduroam in cloud mode, plus workflow and vibration-damping decisions for a printer that lives on the floor.",
+    desc:"Getting a 2.4 GHz-only printer onto campus Wi-Fi, plus workflow and vibration fixes.",
     tags:["Bambu Lab P1S","ESP32 NAT router","Networking","Workflow"],
     bg:"linear-gradient(135deg,#ffedd5,#fed7aa)", ink:"#9a3412",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#9a3412" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="96" y="18" width="128" height="84" rx="10" fill="#fff"/><rect x="116" y="36" width="88" height="40" rx="6"/><path d="M116 90 h88 M160 76 v14"/><path d="M40 60 h34 M246 60 h34" stroke-dasharray="4 5"/></svg>',
