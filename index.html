@@ -31,7 +31,6 @@
   header{position:sticky;top:0;z-index:40;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .mark{width:38px;height:38px;border-radius:9px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;letter-spacing:.02em;flex:none}
   .brand b{font-size:15px;letter-spacing:-.01em;display:block;line-height:1.1}
   .brand span{font-size:12px;color:var(--muted);display:block;line-height:1.2}
   nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
@@ -152,7 +151,7 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#" data-goto="home"><span class="mark">RK</span><span><b>Rahul Kumar</b><span>Mechanical Engineering · Boston University ’27</span></span></a>
+    <a class="brand" href="#" data-goto="home"><span><b>Rahul Kumar</b><span>Mechanical Engineering · Boston University ’27</span></span></a>
     <nav class="tabs" role="tablist" aria-label="Portfolio sections">
       <button role="tab" aria-selected="true" data-view="home">Home</button>
       <button role="tab" aria-selected="false" data-view="projects">Projects</button>
