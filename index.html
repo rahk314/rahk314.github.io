@@ -201,11 +201,10 @@
   <!-- PROJECTS -->
   <section class="view" id="view-projects" aria-label="Projects">
     <p class="kicker">Projects</p>
-    <h1 style="font-size:clamp(28px,4vw,40px)">Four builds. Click any card for the full story.</h1>
-    <p class="lede" style="margin-bottom:22px">Each card is just the preview — problem, approach, and result live in the popup, with extra diagrams, so this page stays short and scannable.</p>
-    <p class="note" style="margin-bottom:18px"><b>Draft lineup:</b> these four entries are sketched from your portfolio brief so you can judge the design. Confirm, cut, or swap them once the site is set up — each project is just one card + popup.</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Four projects.</h1>
+    <p class="lede" style="margin-bottom:22px">Each card is just the preview — click one for the full story in the popup. Three are placeholders for now; their write-ups are on the way.</p>
     <div class="grid" id="projectGrid"></div>
-    <p class="note">How to read these: <b>Problem → What I built → Result.</b> Numbers are the ones from the actual builds — frequencies, intervals, resolutions, and budgets — not rounded marketing claims.</p>
+    <p class="note">The Self-Stabilizing Eating Utensil has its full write-up — <b>Problem → What I built → Result</b>, with the real numbers from the build. The other three are title placeholders until their details are added.</p>
   </section>
 
   <!-- SKILLS -->
@@ -256,7 +255,7 @@
             <li><b style="color:var(--ink)">5.</b> Open <span class="mono">https://&lt;your-username&gt;.github.io</span> — it’s live in about a minute</li>
             <li><b style="color:var(--ink)">6.</b> Later: point a custom domain (~$12/yr) at it in Settings → Pages</li>
           </ul>
-          <p class="note">Project lineup is a draft: these are the four builds from your Nov 11 brief. Tell me which projects you actually want featured and they swap in — each one is just a card + popup.</p>
+          <p class="note">Project lineup is set: HerPower Collective Menstrual Corner Shelf, Self-Stabilizing Eating Utensil, Terrier Motorsports Control Arm Bracket, and ME360 Claw Machine. The shelf, bracket, and claw machine are title placeholders for now.</p>
         </div>
       </div>
     </div>
@@ -319,42 +318,42 @@ var PROJECTS = [
     built:["Seeed XIAO ESP32-S3 as the controller with an Adafruit LSM6DSOX IMU sensing handle motion","Servo actuation sized for a ~30–50 g utensil load, starting with a 1-axis budget prototype (~$44) before committing to 2 axes (~$58 budget / ~$132 performance lane)","1S cylindrical Li-ion power with a protection board (NTC-input boards shortlisted) and a planned contact-charging dock"],
     result:["Component research and BOM complete; Li-ion cells ordered Nov 6, 2026 and in shipping","Open decisions kept explicit: 1-axis first vs 2 axes, 14500 vs 18350 (depends on handle CAD), budget vs performance servo lane","Bench-test path identified using a donor fan cell (3.65 V, 4700 mAh) while ordered cells ship"],
     specs:[["Status","In progress — parts stage"],["Tremor band","4–9 Hz"],["Tip load","~30–50 g"],["Controller","Seeed XIAO ESP32-S3"],["IMU","Adafruit LSM6DSOX"],["Power","1S cylindrical Li-ion"],["Prototype cost","~$44 (1-axis budget)"]] },
-  { id:"climate", status:"WORKING", title:"ESP32 Climate Dashboard", sub:"A live temperature & humidity dashboard that runs on BU’s enterprise Wi-Fi — the hard part was the network, not the sensor.",
-    desc:"A live temperature & humidity dashboard running on BU’s enterprise Wi-Fi.",
-    tags:["ESP32-WROOM-32","DHT sensor","eduroam PEAP","Web dashboard"],
+  { id:"shelf", status:"COMING SOON", title:"HerPower Collective Menstrual Corner Shelf", sub:"Details coming soon.",
+    desc:"Details coming soon.",
+    tags:["Write-up to add"],
+    bg:"linear-gradient(135deg,#ffe4e6,#fecdd3)", ink:"#9f1239",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#9f1239" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M56 16 v88 M56 16 h208" opacity=".4"/><path d="M56 42 L152 42 L56 86 Z" fill="#fff"/><path d="M84 100 h130" stroke-dasharray="4 6" opacity=".55"/></svg>',
+    gallery:[["Project photo","Photo to be added."],
+             ["Write-up","The problem, the build, and the result will go here."],
+             ["Status","Placeholder for now — title only, details on the way."]],
+    problem:"Details coming soon.",
+    built:["Write-up to be added."],
+    result:["Write-up to be added."],
+    specs:[["Status","Placeholder — details to come"]] },
+  { id:"bracket", status:"COMING SOON", title:"Terrier Motorsports Control Arm Bracket", sub:"Details coming soon.",
+    desc:"Details coming soon.",
+    tags:["Write-up to add"],
+    bg:"linear-gradient(135deg,#e2e8f0,#cbd5e1)", ink:"#334155",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="88" y="28" width="144" height="64" rx="10" fill="#fff"/><circle cx="114" cy="60" r="8"/><circle cx="206" cy="60" r="8"/><circle cx="160" cy="60" r="12"/></svg>',
+    gallery:[["Project photo","Photo to be added."],
+             ["Write-up","The problem, the build, and the result will go here."],
+             ["Status","Placeholder for now — title only, details on the way."]],
+    problem:"Details coming soon.",
+    built:["Write-up to be added."],
+    result:["Write-up to be added."],
+    specs:[["Status","Placeholder — details to come"]] },
+  { id:"claw", status:"COMING SOON", title:"ME360 Claw Machine", sub:"Details coming soon.",
+    desc:"Details coming soon.",
+    tags:["Write-up to add"],
     bg:"linear-gradient(135deg,#ccfbf1,#99f6e4)", ink:"#0f766e",
-    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M24 96 L84 62 L134 78 L194 34 L254 48 L296 22"/><circle cx="194" cy="34" r="5" fill="#fff"/><rect x="24" y="14" width="72" height="30" rx="8" fill="#fff"/><text x="36" y="35" font-family="monospace" font-size="15" fill="#0f766e" stroke="none">72.4°</text></svg>',
-    gallery:[["Live dashboard","Hero temperature card + humidity ring gauge + stat tiles, refreshed by JSON polling every 5 s."],
-             ["History view","Started at 30 minutes, extended to 4 hours — 15-second samples, 960 points, NTP clock-time axis labels."],
-             ["The eduroam fix","PEAP / MSCHAPv2 with full-email identity and manual station config. Verified working from a phone on eduroam."]],
-    problem:"A climate logger is easy on home Wi-Fi and genuinely hard on a university network: BU eduroam is WPA2-Enterprise, and a $10 microcontroller has to authenticate like a laptop before it can serve a single page.",
-    built:["Generic 30-pin ESP32 DevKit (WROOM-32, CP2102 USB-serial) running a web server with a DHT sensor — after fixing swapped DATA / VCC wires","Enterprise Wi-Fi recipe: PEAP / MSCHAPv2, identity and anonymous identity as login@bu.edu, radius.bu.edu, certificate validation off in the final working sketch","Dashboard redesign: hero temperature card, humidity ring gauge, stat tiles, history charts, iPad-friendly two-column layout, dark-mode toggle"],
-    result:["Working end-to-end and verified from a phone over eduroam on Oct 23, 2026 — no client isolation where tested","Live updates every 5 seconds; 4 hours of history at 15-second sampling","Camera upgrade honestly scoped out: this board has no camera connector and no PSRAM — it would need an ESP32-CAM or XIAO ESP32S3 Sense instead"],
-    specs:[["Status","Working"],["Board","ESP32-WROOM-32 DevKit"],["Network","eduroam · WPA2-Enterprise"],["Polling","JSON every 5 s"],["History","4 hrs · 960 points"],["Sensor","DHT (temp + humidity)"]] },
-  { id:"knob", status:"IN DESIGN", title:"Rotary-Knob Menu Controller", sub:"A round display mounted over a rotary encoder — turn to browse, press to select. Tactile UI, no touchscreen.",
-    desc:"A round display over a rotary encoder — turn to browse, press to select.",
-    tags:["GC9A01 round LCD","EC11 encoder","ESP32","UI design"],
-    bg:"linear-gradient(135deg,#e0e7ff,#c7d2fe)", ink:"#3730a3",
-    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#3730a3" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="160" cy="60" r="42" fill="#fff"/><circle cx="160" cy="60" r="26"/><path d="M160 38 v-8 M138 60 h-8 M182 60 h8" /><path d="M118 22 a52 52 0 0 1 30-8" stroke-dasharray="4 6"/><text x="148" y="66" font-family="monospace" font-size="13" fill="#3730a3" stroke="none">MENU</text></svg>',
-    gallery:[["Track A hardware","Waveshare 1.28″ round LCD module (240×240, GC9A01) — $14.99 — running on the current ESP32 board. True OLED deferred to phase 2."],
-             ["The encoder","Bourns PEC11R-4220F-S0024 — 24 PPR EC11-class encoder with push switch, $2.69 from DigiKey. About $18 in parts before shipping."],
-             ["Interaction model","One control does everything: rotate = move through menu, press = select. Designed to be usable without looking down."]],
-    problem:"Touchscreens are the default answer for small-device menus, but a single physical knob is faster, works by feel, and is more satisfying — if the display and the control are designed as one object instead of two parts bolted together.",
-    built:["Full spec written (Track A): round GC9A01 LCD coaxial with an EC11-class encoder on the existing ESP32 DevKit","Parts shortlist verified Oct 24, 2026: Waveshare 240×240 1.28″ module + Bourns PEC11R encoder with push switch","Menu architecture planned around rotate-to-cycle / press-to-select, with an OLED upgrade path as phase 2"],
-    result:["Spec and verified parts list complete — about $18 before shipping","No parts purchased yet; this is the next build after the climate dashboard","Chosen over bigger project ideas (reaction wheel, full climate station) because it reuses the board and skills already proven"],
-    specs:[["Status","Spec complete"],["Display","1.28″ GC9A01 · 240×240"],["Control","EC11 · 24 PPR + push"],["Parts cost","~$18 before shipping"],["Platform","Current ESP32 board"]] },
-  { id:"p1s", status:"ONGOING", title:"Bambu Lab P1S — Workshop Setup", sub:"Making a home printer work properly on a campus network and a dorm floor — networking, workflow, and vibration.",
-    desc:"Getting a 2.4 GHz-only printer onto campus Wi-Fi, plus workflow and vibration fixes.",
-    tags:["Bambu Lab P1S","ESP32 NAT router","Networking","Workflow"],
-    bg:"linear-gradient(135deg,#ffedd5,#fed7aa)", ink:"#9a3412",
-    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#9a3412" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="96" y="18" width="128" height="84" rx="10" fill="#fff"/><rect x="116" y="36" width="88" height="40" rx="6"/><path d="M116 90 h88 M160 76 v14"/><path d="M40 60 h34 M246 60 h34" stroke-dasharray="4 5"/></svg>',
-    gallery:[["The constraint","The P1S only does 2.4 GHz home Wi-Fi — it cannot join eduroam directly (unlike the X1E). A travel router was considered and declined."],
-             ["The bridge","ESP32 NAT router: PEAP eduroam uplink + its own WPA2 access point for the printer, in cloud mode so prints can be sent from anywhere."],
-             ["The trade-off, stated plainly","Cloud mode costs LAN Only Mode and the local MQTT dashboard. Setup walkthrough paused at the web-installer step (192.168.4.1 config)."]],
-    problem:"A P1S in a dorm hits three problems at once: it can’t authenticate to enterprise Wi-Fi, it vibrates through the floor to the room below, and every add-on (like a touchscreen) is one firmware update away from breaking.",
-    built:["ESP32 NAT bridge approach selected: esp32_nat_router firmware, Wi-Fi Uplink variant, ESP32 joins eduroam via PEAP and rebroadcasts a private WPA2 network for the printer","Vibration options priced: Rubber-Cal washer/dryer mat 29″×32″ at $30 (cheapest, largest) vs DiversiTech MP-18 exact-fit pad at $42.49","Panda Touch 5″ touchscreen evaluated (~$53) — with the firmware-compatibility caveat checked against the printer before any order"],
-    result:["Bridge route chosen and setup started; no travel router purchased","No mods bought yet — each one gated on a check (firmware version, BU IT policy on personal routers) rather than impulse-ordered","This project is the testbed that feeds printed parts to the other three builds"],
-    specs:[["Status","Ongoing setup"],["Printer","Bambu Lab P1S"],["Bridge","ESP32 NAT router"],["Mode","Cloud (no LAN Only)"],["Vibration pick","Rubber-Cal mat · $30"]] }
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M160 12 v24"/><circle cx="160" cy="44" r="8" fill="#fff"/><path d="M154 50 L118 78 M160 52 v30 M166 50 L202 78"/><path d="M118 78 q-4 16 10 22 M202 78 q4 16 -10 22 M160 82 v20"/></svg>',
+    gallery:[["Project photo","Photo to be added."],
+             ["Write-up","The problem, the build, and the result will go here."],
+             ["Status","Placeholder for now — title only, details on the way."]],
+    problem:"Details coming soon.",
+    built:["Write-up to be added."],
+    result:["Write-up to be added."],
+    specs:[["Status","Placeholder — details to come"]] }
 ];
 
 var grid = document.getElementById('projectGrid');
