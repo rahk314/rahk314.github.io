@@ -190,7 +190,7 @@
         <svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff" /><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22" /><path d="M60 30 l10 10 M60 40 l10-10" stroke="#0f766e"/></svg>
       </span>
       <span class="card-body" style="display:block">
-        <h3>Self-Stabilizing Eating Utensil</h3>
+        <h3>Self-stabilizing spoon</h3>
         <p>An IMU + servo handle that counteracts 4–9 Hz hand tremor.</p>
         <span class="tags"><span class="tag">IMU · LSM6DSOX</span><span class="tag">XIAO ESP32-S3</span><span class="tag">Servo control</span><span class="tag">Power design</span></span>
         <span class="open-row"><span>Open project detail</span><span>↗</span></span>
@@ -202,9 +202,9 @@
   <section class="view" id="view-projects" aria-label="Projects">
     <p class="kicker">Projects</p>
     <h1 style="font-size:clamp(28px,4vw,40px)">Four projects.</h1>
-    <p class="lede" style="margin-bottom:22px">Each card is just the preview — click one for the full story in the popup. Three are placeholders for now; their write-ups are on the way.</p>
+    <p class="lede" style="margin-bottom:22px">Each card is just the preview — click one for the full story in the popup. Three now have their full write-ups; the ME360 Claw Machine is a placeholder until its details are added.</p>
     <div class="grid" id="projectGrid"></div>
-    <p class="note">The Self-Stabilizing Eating Utensil has its full write-up — <b>Problem → What I built → Result</b>, with the real numbers from the build. The other three are title placeholders until their details are added.</p>
+    <p class="note">The spoon, shelf, and bracket have their full write-ups — <b>What → How → Results</b>, with the real numbers from each project. The ME360 Claw Machine is a title placeholder until its details are added.</p>
   </section>
 
   <!-- SKILLS -->
@@ -234,7 +234,7 @@
         </div>
         <h3 style="margin-top:10px">Project experience</h3>
         <ul>
-          <li><b style="color:var(--ink)">Self-stabilizing utensil</b> — IMU + servo tremor cancellation (4–9 Hz), 30–50 g load, cylindrical-cell power, charging dock.</li>
+          <li><b style="color:var(--ink)">Self-stabilizing spoon</b> — microcontroller, servo, and gyroscope tremor cancellation; Onshape handle and housings with a 3D-printed housing; undercuts the assisted-spoon market by over $100.</li>
           <li><b style="color:var(--ink)">ESP32 climate dashboard</b> — live temp / humidity dashboard on BU eduroam, 5-second JSON polling, 4-hour history.</li>
           <li><b style="color:var(--ink)">Rotary-knob controller</b> — 240×240 round LCD over an EC11 encoder; turn to browse, press to select.</li>
           <li><b style="color:var(--ink)">P1S workshop setup</b> — network bridging and print-workflow mods for a dorm-network printer.</li>
@@ -255,7 +255,7 @@
             <li><b style="color:var(--ink)">5.</b> Open <span class="mono">https://&lt;your-username&gt;.github.io</span> — it’s live in about a minute</li>
             <li><b style="color:var(--ink)">6.</b> Later: point a custom domain (~$12/yr) at it in Settings → Pages</li>
           </ul>
-          <p class="note">Project lineup is set: HerPower Collective Menstrual Corner Shelf, Self-Stabilizing Eating Utensil, Terrier Motorsports Control Arm Bracket, and ME360 Claw Machine. The shelf, bracket, and claw machine are title placeholders for now.</p>
+          <p class="note">Project lineup is set: HerPower Collective Menstrual Corner Shelf, Self-stabilizing spoon, Terrier Motorsports Control Arm Bracket, and ME360 Claw Machine. The first three have their full write-ups; the claw machine is a title placeholder for now.</p>
         </div>
       </div>
     </div>
@@ -268,10 +268,10 @@
     <p class="lede" style="margin-bottom:22px">Best for internships, post-graduation roles (graduating spring 2027), and project conversations — especially EVs and mechatronics.</p>
     <div class="two">
       <div class="panel">
-        <div class="link-row"><div><b>Email</b><small>Add your preferred email in the GitHub version</small></div><span class="tag">TO ADD</span></div>
+        <div class="link-row"><div><b>Email</b><small>rahulkumar314.rk@gmail.com</small></div><a class="btn ghost" href="mailto:rahulkumar314.rk@gmail.com">Email me</a></div>
+        <div class="link-row"><div><b>LinkedIn</b><small>linkedin.com/in/rahulkumar314</small></div><a class="btn ghost" href="https://linkedin.com/in/rahulkumar314" target="_blank" rel="noopener">View profile ↗</a></div>
         <div class="link-row"><div><b>GitHub</b><small>Add your github.com profile link</small></div><span class="tag">TO ADD</span></div>
-        <div class="link-row"><div><b>LinkedIn</b><small>Add your LinkedIn profile link</small></div><span class="tag">TO ADD</span></div>
-        <p class="note">Your email, GitHub username, and LinkedIn URL weren’t in the brief, so they’re left as honest placeholders here rather than invented links. Send them over and they slot straight in.</p>
+        <p class="note">Email and LinkedIn are live above. The GitHub profile link is still to add.</p>
       </div>
       <div class="panel">
         <h3>What I’m interested in</h3>
@@ -306,42 +306,42 @@
 
 <script>
 var PROJECTS = [
-  { id:"utensil", status:"IN PROGRESS", title:"Self-Stabilizing Eating Utensil", sub:"Counteracting hand tremor so a utensil tip stays steady — sensing, actuation, and power in one handle.",
-    desc:"An IMU + servo handle that counteracts 4–9 Hz hand tremor.",
-    tags:["IMU · LSM6DSOX","XIAO ESP32-S3","Servo control","1S Li-ion"],
+  { id:"utensil", status:"IN PROGRESS", title:"Self-stabilizing spoon", sub:"A self-stabilizing, easy-to-hold, lightweight spoon — stabilization that makes eating easier for those with hand tremors.",
+    desc:"A self-stabilizing, lightweight spoon that makes eating easier for people with hand tremors.",
+    tags:["Onshape","Microcontroller + servo","Gyroscope","3D-printed housing","DFM"],
     bg:"linear-gradient(135deg,#fef3c7,#fde68a)", ink:"#92400e",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff"/><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22"/></svg>',
-    gallery:[["Handle + actuation concept","Wave = tremor in · flat tip = tremor out. Servos correct in the handle, before the tip."],
-             ["Power constraint","Cylindrical 14500 / 18350 cells only — no LiPo pouches on campus. Button-top cells need a holder or welded tabs, never direct solder."],
-             ["Charging dock","Contact / pogo-pin dock planned so the utensil charges by being set down — no cable fiddling with tremor."]],
-    problem:"Essential tremor sits in the 4–9 Hz band and makes eating with a normal utensil frustrating. A stabilizing utensil has to cancel that motion at the tip, stay light enough to hold, and be safe to power and charge every day.",
-    built:["Seeed XIAO ESP32-S3 as the controller with an Adafruit LSM6DSOX IMU sensing handle motion","Servo actuation sized for a ~30–50 g utensil load, starting with a 1-axis budget prototype (~$44) before committing to 2 axes (~$58 budget / ~$132 performance lane)","1S cylindrical Li-ion power with a protection board (NTC-input boards shortlisted) and a planned contact-charging dock"],
-    result:["Component research and BOM complete; Li-ion cells ordered Nov 6, 2026 and in shipping","Open decisions kept explicit: 1-axis first vs 2 axes, 14500 vs 18350 (depends on handle CAD), budget vs performance servo lane","Bench-test path identified using a donor fan cell (3.65 V, 4700 mAh) while ordered cells ship"],
-    specs:[["Status","In progress — parts stage"],["Tremor band","4–9 Hz"],["Tip load","~30–50 g"],["Controller","Seeed XIAO ESP32-S3"],["IMU","Adafruit LSM6DSOX"],["Power","1S cylindrical Li-ion"],["Prototype cost","~$44 (1-axis budget)"]] },
-  { id:"shelf", status:"COMING SOON", title:"HerPower Collective Menstrual Corner Shelf", sub:"Details coming soon.",
-    desc:"Details coming soon.",
-    tags:["Write-up to add"],
+    gallery:[["Handle & housings","Handle and component housings designed in Onshape; the housing was 3D printed to reduce weight and cost."],
+             ["Stabilization","A microcontroller with a servo motor and gyroscope counteracts rotations caused by the user."],
+             ["Power constraint","Cylindrical 14500 / 18350 cells only — no LiPo pouches on campus. Button-top cells need a holder or welded tabs, never direct solder."]],
+    problem:"Create a spoon that is self-stabilizing, easy to hold, and lightweight — stabilization makes eating easier for those with hand tremors. Essential tremor sits in the 4–9 Hz band, so the spoon has to sense the rotations the user's hand causes and cancel them at the tip.",
+    built:["Designed the handle and component housings in Onshape","Used a microcontroller with a servo motor and gyroscope to counteract rotations caused by the user — Seeed XIAO ESP32-S3 controller with an Adafruit LSM6DSOX IMU sensing handle motion","Housing was 3D printed to reduce weight and cost","1S cylindrical Li-ion power with a protection board (NTC-input boards shortlisted) and a planned contact-charging dock"],
+    result:["Undercut the current market for mechanically assisted spoons by over $100","Implemented DFM principles to reduce overall part production cost and complexity","Component research and BOM complete; Li-ion cells ordered Nov 6, 2026 and in shipping"],
+    specs:[["Status","In progress — parts stage"],["Project type","Class project"],["CAD","Onshape"],["Controller","Seeed XIAO ESP32-S3"],["Sensing","Gyroscope · LSM6DSOX IMU"],["Housing","3D printed"],["Tremor band","4–9 Hz"],["Power","1S cylindrical Li-ion"],["Market undercut","Over $100"]] },
+  { id:"shelf", status:"ONGOING", title:"HerPower Collective Menstrual Corner Shelf", sub:"A hygiene product station for a K-12 school in Nepal — secure storage and display for 150+ reusable menstrual products.",
+    desc:"A hygiene product station for a K-12 school in Nepal, storing and displaying 150+ reusable menstrual products.",
+    tags:["Onshape","DFM","Local materials","HerPower Collective"],
     bg:"linear-gradient(135deg,#ffe4e6,#fecdd3)", ink:"#9f1239",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#9f1239" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M56 16 v88 M56 16 h208" opacity=".4"/><path d="M56 42 L152 42 L56 86 Z" fill="#fff"/><path d="M84 100 h130" stroke-dasharray="4 6" opacity=".55"/></svg>',
-    gallery:[["Project photo","Photo to be added."],
-             ["Write-up","The problem, the build, and the result will go here."],
-             ["Status","Placeholder for now — title only, details on the way."]],
-    problem:"Details coming soon.",
-    built:["Write-up to be added."],
-    result:["Write-up to be added."],
-    specs:[["Status","Placeholder — details to come"]] },
-  { id:"bracket", status:"COMING SOON", title:"Terrier Motorsports Control Arm Bracket", sub:"Details coming soon.",
-    desc:"Details coming soon.",
-    tags:["Write-up to add"],
+    gallery:[["Unit design","Designed in Onshape; safety requirements defined for the school setting — stability, soft-close mechanisms, accessibility."],
+             ["DFM for local materials","Design adapted to local material availability, eliminating reliance on imported materials."],
+             ["Visual-first documentation","Fabrication documentation bridged the language gap; relationships established with Nepal carpenters."]],
+    problem:"Design a hygiene product station for a K-12 school in Nepal to securely store and display 150+ reusable menstrual products. Safety requirements were defined for the school setting, prioritizing stability, soft-close mechanisms, and accessibility.",
+    built:["Used Onshape to design the unit","Applied DFM by adapting the design to local material availability","Integrated low-profile hardware, friction stay mechanisms, and locking systems to maximize ergonomics within tight space constraints"],
+    result:["Delivered a scalable, cost-effective solution, eliminating reliance on imported materials","Bridged the language gap via visual-first fabrication documentation","Established relationships with Nepal carpenters"],
+    specs:[["Status","Ongoing"],["Client","HerPower Collective"],["Setting","K-12 school, Nepal"],["Capacity","150+ reusable products"],["CAD","Onshape"],["Priorities","Stability · soft-close · accessibility"]] },
+  { id:"bracket", status:"COMPLETE", title:"Terrier Motorsports Control Arm Bracket", sub:"A control arm bracket supporting the wheel assembly's theoretical load at a Factor of Safety of 1.5.",
+    desc:"FEA-optimized aluminum bracket for the wheel assembly — over 2 kN vertical load, 30% lighter, under $18 per bracket.",
+    tags:["SolidWorks FEA","DFM","CNC + manual mill","Aluminum"],
     bg:"linear-gradient(135deg,#e2e8f0,#cbd5e1)", ink:"#334155",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#334155" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="88" y="28" width="144" height="64" rx="10" fill="#fff"/><circle cx="114" cy="60" r="8"/><circle cx="206" cy="60" r="8"/><circle cx="160" cy="60" r="12"/></svg>',
-    gallery:[["Project photo","Photo to be added."],
-             ["Write-up","The problem, the build, and the result will go here."],
-             ["Status","Placeholder for now — title only, details on the way."]],
-    problem:"Details coming soon.",
-    built:["Write-up to be added."],
-    result:["Write-up to be added."],
-    specs:[["Status","Placeholder — details to come"]] },
+    gallery:[["FEA optimization","Finite Element Analysis features in SolidWorks used to optimize the design."],
+             ["Machined from aluminum","Part machined using CNC and manual mill."],
+             ["Results","Under $18 per bracket · over 2 kN of vertical load · 30% weight reduction."]],
+    problem:"Design and fabricate a control arm bracket that supports the wheel assembly's theoretical load and achieves a Factor of Safety of 1.5. The initial design was created from the design constraints of the wheel assembly.",
+    built:["Used Finite Element Analysis features in SolidWorks to optimize the design","Applied DFM principles","Used CNC and manual mill to machine the part from aluminum"],
+    result:["The design achieved a cost of less than $18 per bracket","Capable of supporting over 2 kN of vertical load","Reduced the weight of the bracket by 30%"],
+    specs:[["Team","Terrier Motorsports"],["Factor of Safety","1.5"],["Vertical load","Over 2 kN"],["Cost","Under $18 per bracket"],["Weight","Reduced 30%"],["Material","Aluminum"],["Analysis","SolidWorks FEA"]] },
   { id:"claw", status:"COMING SOON", title:"ME360 Claw Machine", sub:"Details coming soon.",
     desc:"Details coming soon.",
     tags:["Write-up to add"],
@@ -376,9 +376,9 @@ function openProject(id){
     '<figure class="g-main" style="margin:0"><div>'+p.art+'<figcaption>'+p.gallery[0][0]+' — '+p.gallery[0][1]+'</figcaption></div></figure>'+
     '<div class="g-col">'+ p.gallery.slice(1).map(function(g){return '<figure class="g-side" style="margin:0"><div><b style="font-size:13.5px">'+g[0]+'</b><figcaption>'+g[1]+'</figcaption></div></figure>'}).join('') +'</div>';
   document.getElementById('mMain').innerHTML =
-    '<h3>The problem</h3><p>'+p.problem+'</p>'+
-    '<h3>What I built</h3><ul>'+p.built.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+
-    '<h3>Result &amp; where it stands</h3><ul>'+p.result.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+    '<h3>What</h3><p>'+p.problem+'</p>'+
+    '<h3>How</h3><ul>'+p.built.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+
+    '<h3>Results</h3><ul>'+p.result.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
   document.getElementById('mSpecs').innerHTML = p.specs.map(function(s){return '<tr><td>'+s[0]+'</td><td>'+s[1]+'</td></tr>'}).join('');
   document.getElementById('mTags').innerHTML = p.tags.map(function(t){return '<span class="tag">'+t+'</span>'}).join('');
   if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
