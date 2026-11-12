@@ -201,10 +201,10 @@
   <!-- PROJECTS -->
   <section class="view" id="view-projects" aria-label="Projects">
     <p class="kicker">Projects</p>
-    <h1 style="font-size:clamp(28px,4vw,40px)">Four projects.</h1>
-    <p class="lede" style="margin-bottom:22px">Each card is just the preview — click one for the full story in the popup. Three now have their full write-ups; the ME360 Claw Machine is a placeholder until its details are added.</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Five projects.</h1>
+    <p class="lede" style="margin-bottom:22px">Each card is just the preview — click one for the full story in the popup. All five now have their full write-ups.</p>
     <div class="grid" id="projectGrid"></div>
-    <p class="note">The spoon, shelf, and bracket have their full write-ups — <b>What → How → Results</b>, with the real numbers from each project. The ME360 Claw Machine is a title placeholder until its details are added.</p>
+    <p class="note">Every project has its full write-up — <b>What → How → Results</b>, with the real numbers from each build, including both ME360 projects: the claw machine and the balancing beam cart.</p>
   </section>
 
   <!-- SKILLS -->
@@ -255,7 +255,7 @@
             <li><b style="color:var(--ink)">5.</b> Open <span class="mono">https://&lt;your-username&gt;.github.io</span> — it’s live in about a minute</li>
             <li><b style="color:var(--ink)">6.</b> Later: point a custom domain (~$12/yr) at it in Settings → Pages</li>
           </ul>
-          <p class="note">Project lineup is set: HerPower Collective Menstrual Corner Shelf, Self-stabilizing spoon, Terrier Motorsports Control Arm Bracket, and ME360 Claw Machine. The first three have their full write-ups; the claw machine is a title placeholder for now.</p>
+          <p class="note">Project lineup: HerPower Collective Menstrual Corner Shelf, Self-stabilizing spoon, Terrier Motorsports Control Arm Bracket, ME360 Claw Machine, and the Balancing Beam Cart — all five with full write-ups.</p>
         </div>
       </div>
     </div>
@@ -342,18 +342,30 @@ var PROJECTS = [
     built:["Used Finite Element Analysis features in SolidWorks to optimize the design","Applied DFM principles","Used CNC and manual mill to machine the part from aluminum"],
     result:["The design achieved a cost of less than $18 per bracket","Capable of supporting over 2 kN of vertical load","Reduced the weight of the bracket by 30%"],
     specs:[["Team","Terrier Motorsports"],["Factor of Safety","1.5"],["Vertical load","Over 2 kN"],["Cost","Under $18 per bracket"],["Weight","Reduced 30%"],["Material","Aluminum"],["Analysis","SolidWorks FEA"]] },
-  { id:"claw", status:"COMING SOON", title:"ME360 Claw Machine", sub:"Details coming soon.",
-    desc:"Details coming soon.",
-    tags:["Write-up to add"],
+  { id:"claw", status:"COMPLETE", title:"ME360 Claw Machine", sub:"A claw machine built as a 2.5-degree-of-freedom motion system — actually 3.5 DOF, counting the motor that opens and closes the claw.",
+    desc:"A joystick-controlled claw machine: X/Y linear stages, a stepper-and-pulley Z axis, and a gear-linked servo claw.",
+    tags:["X/Y linear stages","Stepper + pulley Z-axis","Servo claw","Joystick control","Laser-cut base"],
     bg:"linear-gradient(135deg,#ccfbf1,#99f6e4)", ink:"#0f766e",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M160 12 v24"/><circle cx="160" cy="44" r="8" fill="#fff"/><path d="M154 50 L118 78 M160 52 v30 M166 50 L202 78"/><path d="M118 78 q-4 16 10 22 M202 78 q4 16 -10 22 M160 82 v20"/></svg>',
-    gallery:[["Project photo","Photo to be added."],
-             ["Write-up","The problem, the build, and the result will go here."],
-             ["Status","Placeholder for now — title only, details on the way."]],
-    problem:"Details coming soon.",
-    built:["Write-up to be added."],
-    result:["Write-up to be added."],
-    specs:[["Status","Placeholder — details to come"]] }
+    gallery:[["X/Y linear stages","X and Y linear stages move the claw, with a SolidWorks simulation of x and y-axis movement; the Y-axis carriage holds the y-axis bar and connects to the x-axis."],
+             ["Z axis & claw","The carriage holds a smaller stepper motor that raises and lowers the claw via a pulley and string; a servo drives two claw arms linked by gears."],
+             ["Base & controls","Laser-cut main base with slots for the vertical supports and an inclined prize chute; joystick and drop button mounted at the front."]],
+    problem:"Apply the concepts and methods reviewed in class to the design of a motion system with 2.5 degrees of freedom: build the mechanical and electrical subsystems and integrate them to demonstrate the prototype's functionality. The concept is a claw machine — actually a 3.5 DOF system, because of the motor used to open and close the claw.",
+    built:["X and Y linear stages for claw movement, with a SolidWorks simulation of the x and y-axis movement","Aluminum bar end-stop for the carriage and raised support for the x-axis, plus a motor mount for the x-axis","Y-axis carriage holding the y-axis bar and connecting to the x-axis","Z-axis motor holder: the carriage slides across the y-axis linear stage and holds a smaller stepper motor that raises and lowers the claw via a pulley and string","Servo motor housing with two claw arms connected by gears, so when the servo rotates, the other arm rotates correspondingly","Joystick and button housing mounted to the front of the main base — joystick for movement, button for dropping the claw","Main base laser cut (3D printing it would not be practical), with slots for the vertical supports and a chute where the claw drops the prize, on an incline so the prize slides out toward the user","Iterations: x-axis end-stop modified so the vertical support bars slot in instead of using fasteners, for ease of assembly and disassembly; y-axis end-stop modified to add a motor for y-axis movement"],
+    result:["Tested x and y-axis movement using the joystick","Tested z-axis motion with the small stepper motor and pulley","Tested the claw arms","Final assembly and operation completed"],
+    specs:[["Course","ME360"],["Degrees of freedom","2.5 — 3.5 with the claw motor"],["X/Y axes","Linear stages"],["Z axis","Stepper motor · pulley + string"],["Claw","Servo · two gear-linked arms"],["Controls","Joystick + drop button"],["Base","Laser cut · prize chute"]] },
+  { id:"cart", status:"COMPLETE", title:"Balancing Beam Cart", sub:"Designing a moving cart to balance a beam: carry a 1-foot vertical bar 5–10 ft and back, stop to stop, without toppling it — as fast as possible.",
+    desc:"A motorized cart that carries a 1-ft bar — supported only at its base — 18 ft in 18.82 s without tipping it.",
+    tags:["SolidWorks motion analysis","Free-body diagram","Laser-cut cardboard","3D-printed parts"],
+    bg:"linear-gradient(135deg,#dbeafe,#bfdbfe)", ink:"#1e40af",
+    art:'<svg viewBox="0 0 320 120" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="150" y="14" width="10" height="52" fill="#fff"/><rect x="96" y="66" width="128" height="10" rx="3" fill="#fff"/><circle cx="118" cy="94" r="13" fill="#fff"/><circle cx="202" cy="94" r="13" fill="#fff"/><path d="M40 107 h240" stroke-dasharray="4 6" opacity=".55"/></svg>',
+    gallery:[["The constraint","The 1-ft prismatic bar stands on a horizontal platform, supported at its bottom face only — no glue, fasteners, or side supports allowed."],
+             ["Tipping analysis","A free-body diagram put the tipping limit at 32.2 in/s²; SolidWorks motion analysis matched it — the reaction force at the lifting edge reached 0 N at about 32.22 in/s²."],
+             ["Wheel trade-off","Wheel diameters of 3, 4, 5, and 6 in. were tested; 4-inch wheels were chosen for a slight velocity buffer."]],
+    problem:"Design a system that transports a 1-foot-long vertical prismatic bar across a variable distance, from 5–10 ft, and back, stop to stop, without toppling. The bar is placed on a horizontal platform and supported at its bottom face only — no glue, fasteners, or side supports are allowed. The challenge: minimize the time required to transport the bar.",
+    built:["Theoretical calculation from a simple free-body diagram: the bar will tilt if the moving cart exceeds an acceleration of 32.2 in/s²","SolidWorks motion analysis confirmed the theory — at an acceleration of around 32.22 in/s², the bar's reaction force at the lifting edge reached 0 N","Wheel diameter testing: each group member tested a diameter (3, 4, 5, and 6 in.) to justify the optimal choice — with 6-inch wheels and the motor at 250 rpm, top speed was 79 in/s within a 10 ft distance","Chose 4-inch diameter wheels for a slight velocity buffer, since the motor will spin less than 250 rpm in the real world","Main platform is cardboard, laser cut to 4.25″ × 10.65″ — rigid enough to screw into and support the motors, brackets, and bar while staying lightweight","The 4 brackets holding the front and rear axles, the motor mount, and the wheels were all 3D printed; the axle brackets and motor mount each have 4 screw holes to prevent unintended twisting","Wheels printed with 2% infill to be as light as possible, about 0.7″ thick for contact and traction, with rubber tracks glued to the circumference for grip","Iteration: after some wheels became loose and fell off in testing, the wheels were superglued to the axles with spacers so all wheels were equidistant from the center"],
+    result:["The car traveled 9 ft each way — 18 ft total — in 18.82 seconds without tipping over the bar"],
+    specs:[["Course","ME360"],["Bar","1 ft vertical prismatic bar"],["Tipping limit","32.2 in/s² (theory)"],["SolidWorks check","0 N at ~32.22 in/s²"],["Platform","Laser-cut cardboard · 4.25″ × 10.65″"],["Wheels","3D printed · 4 in. · 2% infill"],["Result","18 ft in 18.82 s · no tip"]] }
 ];
 
 var grid = document.getElementById('projectGrid');
