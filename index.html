@@ -75,10 +75,10 @@
   .section-head p{color:var(--muted);margin:0;font-size:14px;max-width:520px}
   /* PROJECT CARDS — Tyler-style grid, new palette */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-align:left;padding:0;cursor:pointer;font:inherit;color:inherit;width:100%;transition:transform .15s ease, box-shadow .15s ease}
+  .card{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-align:left;padding:0;cursor:pointer;font:inherit;color:inherit;width:100%;transition:transform .15s ease, box-shadow .15s ease}
   .card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   .card:focus-visible,.btn:focus-visible,nav.tabs button:focus-visible,.thumb:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-  .thumb{aspect-ratio:1/1;width:100%;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .thumb{aspect-ratio:1/1;width:100%;flex:none;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
   .thumb svg{width:84%;max-width:340px;height:auto}
   /* Featured card (Home) — square preview beside the text, so the 1:1 thumb doesn't dominate the full-width card */
   .card.featured{display:grid;grid-template-columns:minmax(0,440px) 1fr;align-items:stretch}
@@ -218,6 +218,9 @@
   .phase-card li b{color:var(--ink);font-weight:700}
   .phase-status{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:999px;background:var(--accent-bg);color:var(--accent-ink);vertical-align:1px;margin-left:4px;white-space:nowrap}
   .phase-card.v2 .phase-status{background:var(--teal-bg);color:var(--teal)}
+  .phase-photo{margin:0 0 12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .phase-photo img{width:100%;height:auto;display:block}
+  .phase-photo figcaption{padding:8px 12px 10px;font-size:12.5px;line-height:1.5;color:var(--muted);background:var(--surface);border-top:1px solid var(--line)}
   @media (max-width:820px){
     .hero,.two,.modal-body{grid-template-columns:1fr}
     .whr-grid{grid-template-columns:1fr}
@@ -279,13 +282,13 @@
       <button class="btn ghost" data-goto="projects">All projects →</button>
     </div>
     <button class="card featured" data-project="utensil" style="width:100%">
-      <span class="thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">
+      <span class="thumb has-photo">
         <span class="status">● IN PROGRESS</span>
-        <svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff" /><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22" /><path d="M60 30 l10 10 M60 40 l10-10" stroke="#0f766e"/></svg>
+        <img class="thumb-img" src="assets/projects/utensil-v2-thumb.jpg" alt="V2 self-stabilizing utensil in progress — slimmer black 3D-printed housing with a black 3D-printed spoon head, blue coupling ring, and USB cable plugged in at the back">
       </span>
       <span class="card-body" style="display:block">
         <h3>Self-Stabilizing Utensil for People with Hand Tremors</h3>
-        <p>An IMU + servo motor that counteracts 4-9 Hz hand tremor and maintains a level utensil head.</p>
+        <p>An IMU + servo motor that counteracts 4-9 Hz hand tremor and maintains a level utensil head. My senior capstone project, now in its second version.</p>
         <span class="tags"><span class="tag">IMU</span><span class="tag">ESP32</span><span class="tag">Servo control</span><span class="tag">CAD</span><span class="tag">Rapid prototyping</span><span class="tag">Manufacturing</span></span>
         <span class="open-row"><span>Open project detail</span><span>↗</span></span>
       </span>
@@ -295,10 +298,9 @@
   <!-- PROJECTS -->
   <section class="view" id="view-projects" aria-label="Projects">
     <p class="kicker">Projects</p>
-    <h1 style="font-size:clamp(28px,4vw,40px)">Six projects.</h1>
-    <p class="lede" style="margin-bottom:22px">Each card is just the preview — click one for the full story in the popup.</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">What I've built.</h1>
+    <p class="lede" style="margin-bottom:22px">Click on a project to see more details.</p>
     <div class="grid" id="projectGrid"></div>
-    <p class="note">Five of the six projects have their full write-up — <b>What → How → Results</b>, with the real numbers from each build, including both ME360 projects: the claw machine and the balancing beam cart.</p>
   </section>
 
   <!-- SKILLS -->
@@ -310,6 +312,7 @@
       <div class="skill"><h3>🛠 Design &amp; CAD</h3><ul><li>Mechanical design for handheld / enclosure-scale devices</li><li>Design for 3D printing — tolerances, fits, iteration</li><li>BOM building and component selection under budget + policy constraints</li></ul></div>
       <div class="skill"><h3>⚡ Embedded &amp; Electronics</h3><ul><li>ESP32 (WROOM-32, XIAO ESP32-S3) firmware in Arduino / C</li><li>Sensors: IMU (LSM6DSOX), DHT climate sensing</li><li>Enterprise Wi-Fi debugging — WPA2-Enterprise, PEAP / MSCHAPv2 on eduroam</li><li>Battery systems: 1S Li-ion, protection boards, contact charging</li></ul></div>
       <div class="skill"><h3>🎛 Controls &amp; Software</h3><ul><li>Servo actuation and stabilization concepts for 4–9 Hz disturbance rejection</li><li>Live web dashboards — JSON polling, history charts, gauges</li><li>Rotary-encoder UI (EC11) + round LCD menu systems</li><li>IR capture / replay for closed-loop fan control</li></ul></div>
+      <div class="skill"><h3>🏭 Manufacturing</h3><ul><li>SolidWorks CAD + FEA — 10 FEA iterations across 3 materials on the control arm bracket (FoS 1.5); motion analysis for the balancing beam cart</li><li>CAM + CNC machining — HSMWorks toolpaths for the bracket; Haas Mini Mills and manual mill work in ME345</li><li>Laser cutting, water jet, and machine shop tools; DFM on every project</li><li>Quality — SPC (X-bar/R charts, Cp/Cpk), root-cause analysis, P&amp;ID verification</li></ul></div>
     </div>
     <div class="bar-row"><h3>Tools on the bench right now</h3><p>Bambu Lab P1S · Arduino Uno R3 + starter kit (28BYJ-48 stepper / ULN2003) · ESP32 DevKit (CP2102) · Soldering + hand tools · Git / GitHub Pages for this site.</p></div>
   </section>
@@ -485,7 +488,7 @@
   </section>
 </main>
 
-<footer><div class="wrap"><span>Rahul Kumar — Engineering Portfolio · Draft built from scratch</span><span class="mono">Home / Projects / Skills / Résumé / Contact</span></div></footer>
+<footer><div class="wrap"><span>Rahul Kumar — Engineering Portfolio</span><span class="mono">Home / Projects / Skills / Résumé / Contact</span></div></footer>
 
 <!-- DETAIL MODAL -->
 <dialog id="detail" aria-labelledby="mTitle">
@@ -508,10 +511,15 @@
 <script>
 var PROJECTS = [
   { id:"utensil", status:"IN PROGRESS", title:"Self-Stabilizing Utensil for People with Hand Tremors", sub:"A self-stabilizing, easy-to-hold, lightweight spoon — stabilization that makes eating easier for those with hand tremors.",
-    desc:"An IMU + servo motor that counteracts 4-9 Hz hand tremor and maintains a level utensil head.",
+    desc:"An IMU + servo motor that counteracts 4-9 Hz hand tremor and maintains a level utensil head. My senior capstone project, now in its second version.",
     tags:["IMU","ESP32","Servo control","CAD","Rapid prototyping","Manufacturing"],
     bg:"linear-gradient(135deg,#fef3c7,#fde68a)", ink:"#92400e",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 78 C70 40, 110 95, 160 60 S 260 55, 300 62" stroke-dasharray="5 6" opacity=".55"/><rect x="118" y="42" width="120" height="34" rx="17" fill="#fff"/><circle cx="252" cy="59" r="10"/><path d="M262 59 h34 M282 48 v22"/></svg>',
+    thumb:"assets/projects/utensil-v2-thumb.jpg",
+    thumbAlt:"V2 self-stabilizing utensil in progress — slimmer black 3D-printed housing with a black 3D-printed spoon head, blue coupling ring, and USB cable plugged in at the back",
+    photos:[["assets/projects/utensil-v1-interior.jpg","V1 utensil with the housing open — Arduino Nano, IMU board, wiring, and battery pack inside the 3D-printed housing, with the servo and red spoon head at the top","V1 internals — Arduino Nano, IMU, and servo wired inside the 3D-printed housing"],
+            ["assets/projects/utensil-v1-final.jpg","V1 self-stabilizing utensil assembled — black 3D-printed housing with hinges, white button, green LED, and the red sawed-off soup spoon head","V1 assembled — 3D-printed housing with the sawed-off soup spoon head"],
+            ["assets/projects/utensil-v2.jpg","V2 self-stabilizing utensil in progress — slimmer black 3D-printed housing with a black 3D-printed spoon head, blue coupling ring, and USB cable plugged in at the back","V2 in progress — slimmer housing with a 3D-printed spoon head"]],
     gallery:[["Handle & housings","Handle and component housings designed in Onshape; the housing was 3D printed to reduce weight and cost."],
              ["Stabilization","A microcontroller with a servo motor and gyroscope counteracts rotations caused by the user."],
              ["Power constraint","Cylindrical 14500 / 18350 cells only — no LiPo pouches on campus. Button-top cells need a holder or welded tabs, never direct solder."]],
@@ -519,16 +527,27 @@ var PROJECTS = [
     built:["Designed the handle and component housings in Onshape","Used a microcontroller with a servo motor and gyroscope to counteract rotations caused by the user — Seeed XIAO ESP32-S3 controller with an Adafruit LSM6DSOX IMU sensing handle motion","Housing was 3D printed to reduce weight and cost","1S cylindrical Li-ion power with a protection board (NTC-input boards shortlisted) and a planned contact-charging dock"],
     result:["Undercut the current market for mechanically assisted spoons by over $100","Implemented DFM principles to reduce overall part production cost and complexity","Component research and BOM complete; Li-ion cells ordered Nov 6, 2026 and in shipping"],
     specs:[["Status","In progress — parts stage"],["Project type","Class project"],["CAD","Onshape"],["Controller","Seeed XIAO ESP32-S3"],["Sensing","Gyroscope · LSM6DSOX IMU"],["Housing","3D printed"],["Tremor band","4–9 Hz"],["Power","1S cylindrical Li-ion"],["Market undercut","Over $100"]] },
-  { id:"mfgcell", status:"", title:"Automated Flexible Manufacturing Cell", sub:"Programmed and coordinated a flexible manufacturing cell with a material transport loop and 3 stations: 2 stations with a robot arm and CNC mill, and 1 assembly station with a robot arm.",
+  { id:"mfgcell", status:"IN PROGRESS", title:"Automated Flexible Manufacturing Cell", sub:"Programmed and coordinated a flexible manufacturing cell with a material transport loop and 3 stations: 2 stations with a robot arm and CNC mill, and 1 assembly station with a robot arm.",
     desc:"Programmed and coordinated a flexible manufacturing cell with a material transport loop and 3 stations: 2 stations with a robot arm and CNC mill, and 1 assembly station with a robot arm.",
     tags:["CAD","CAM","Manufacturing","Robot control","Manufacturing Execution System","Automation"],
     bg:"linear-gradient(135deg,#e0e7ff,#c7d2fe)", ink:"#3730a3",
     art:'<svg viewBox="0 0 320 120" fill="none" stroke="#3730a3" stroke-width="3" stroke-linecap="round" aria-hidden="true"><rect x="52" y="30" width="216" height="60" rx="30" stroke-dasharray="5 6" opacity=".55"/><rect x="72" y="46" width="44" height="28" rx="6" fill="#fff"/><rect x="138" y="46" width="44" height="28" rx="6" fill="#fff"/><rect x="204" y="46" width="44" height="28" rx="6" fill="#fff"/><path d="M94 40 v-10 M160 40 v-10 M226 40 v-10"/></svg>',
+    thumb:"assets/projects/mfgcell-tool-thumb.jpg",
+    thumbAlt:"The finished tool — the assembled two-part HDPE block with its large and small channels, and two clay animals rolled from its spheres",
+    photos:[["assets/projects/mfgcell-cell.jpg","A UR5 robot arm on its linear slide beside a Haas Mini Mill in the ADML flexible manufacturing cell, with the loop conveyor behind it","A UR5 robot arm on its linear slide beside a Haas Mini Mill in the ADML flexible manufacturing cell"],["assets/projects/mfgcell-tool.jpg","The finished clay sphere-rolling tool — the assembled white two-part HDPE block with one large cylindrical channel and three small channels, with two clay animals built from the rolled spheres sitting on top","The finished tool — the assembled two-part HDPE block with its large and small channels, and two clay animals rolled from its spheres"]],
     gallery:[],
-    problem:"",
-    built:[],
-    result:[],
-    specs:[] },
+    problem:"The team designed and automatically manufactured an inclusive, kid-friendly clay and playdough sphere-rolling tool for children who struggle with fine motor skills, hand coordination, or maintaining constant pressure. The assembled two-part block forms one large and three small cylindrical channels, so kids can roll 4 spheres of two sizes — 1 large for an animal's head, 2 small for ears, and 1 small for a nose — to build animals. Playdough play helps develop fine motor skills, and the tool removes barriers to creative play.",
+    built:["Two-part interlocking design — a Pin part (Bottom) and a Slot part (Top), both machined from 2″ × 3″ × 0.75″ HDPE stock, sliding together via pin-and-slot features and side guide rails",
+    "DFM redesign so each part is machined from a single top setup — the early vertical Bore/Drill concept was inefficient and placed features too close to the vise jaws",
+    "Small channels sized to the 1/4″ ball end mill for single-pass efficiency",
+    "Worst-case tolerance stack-up of ~0.039″ (mill ±0.0005″, robot ±0.009″, stock ±0.01″), with chamfers and a −0.05″ connection gap for reliable robotic assembly",
+    "CAM Flow toolpath with a 1/4″ ball end mill and 0.0625″ step-over for smooth channels — the Parallel toolpath left stepped ridges",
+    "BUMES/CIM workflow: Station 4 (UR5 Edie + Haas Mini Mill Paprika) machines the Pin part, Station 3 (UR5 Mary + Haas Mini Mill Cayenne) machines the Slot part in parallel, and Station 1 (UR5 Rosie) assembles",
+    "AGVs rotate so milling and assembly run simultaneously",
+    "Scheduling, lean (Toyota Production System), and cost analysis are part of the six required engineering components"],
+    result:["In progress — the CAM checklist, design review, and proposal are complete (Sept 30 / Oct 21 / Oct 23)",
+    "The team is finalizing and running the BUMES program to manufacture 4 copies"],
+    specs:[["Status","In Progress"],["Course","ME345 Automation & Manufacturing Methods"],["Term","Fall 2026"],["Professor","Prof. J. William Boley"],["Cell","ADML Flexible Manufacturing Cell"],["MES","BUMES (Python MES)"],["Stock","2″ × 3″ × 0.75″ HDPE"],["Robots","UR5 Edie, Mary, Rosie"],["Mills","Haas Mini Mill Paprika and Cayenne"]] },
   { id:"shelf", status:"COMPLETE", title:"HPC Hygiene Product Station", sub:"A hygiene product station for a K-12 school in Nepal — secure storage and display for 150+ reusable menstrual products.",
     desc:"A custom hygiene product station for a K-12 school in Nepal, storing and displaying 150+ reusable menstrual products.",
     tags:["CAD","International collaboration","DFM"],
@@ -594,9 +613,10 @@ var PROJECTS = [
     specs:[["Course","ME360"],["Bar","1 ft vertical prismatic bar"],["Tipping limit","32.2 in/s² (theory)"],["SolidWorks check","0 N at ~32.22 in/s²"],["Platform","Laser-cut cardboard · 4.25″ × 10.65″"],["Wheels","3D printed · 4 in. · 2% infill"],["Result","18 ft in 18.82 s · no tip"]] }
 ];
 
-/* Stats strip values — every number below already appears in that project's write-up above. No stats entry for mfgcell: its popup stays as-is. */
+/* Stats strip values — every number below already appears in that project's write-up above. */
 var STATS = {
   utensil:[["4–9 Hz","Tremor band"],["Over $100","Market undercut"]],
+  mfgcell:[["4","Copies — production target"],["2-part","Assembly"],["3","Stations"],["4","Spheres per tool"]],
   shelf:[["150+","Reusable products"]],
   bracket:[[">2 kN","Vertical load"],["30%","Lighter"],["<$18","Per bracket"],["1.5","Factor of Safety"]],
   claw:[["2.5 DOF","Motion system"],["3.5 DOF","With the claw motor"]],
@@ -676,6 +696,7 @@ function openProject(id){
         '<div class="phase-top"><span class="phase-label">V2 · Senior capstone</span><span class="phase-badge">● In progress</span></div>'+
         '<h4>Refining it into a viable product</h4>'+
         '<p class="phase-sub">Reworking the limits from v1 — faster sensing, faster actuation, and a housing designed to be used and cleaned.</p>'+
+        '<figure class="phase-photo"><img src="assets/projects/utensil-v2.jpg" alt="V2 self-stabilizing utensil in progress — slimmer black 3D-printed housing with a black 3D-printed spoon head, blue coupling ring, and USB cable plugged in at the back"><figcaption>V2 in progress — slimmer housing with a 3D-printed spoon head</figcaption></figure>'+
         '<ul>'+
           '<li><b>ESP32 instead of Arduino Nano</b> — should have more processing power.</li>'+
           '<li><b>Quicker IMU</b> — get readings more quickly and act on them faster.</li>'+
