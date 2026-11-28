@@ -93,9 +93,18 @@
   .open-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:13px;font-weight:800;color:var(--accent-ink)}
   /* SKILLS */
   .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
-  .skill ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+  .skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column}
+  .skill-head{display:flex;align-items:center;gap:10px}
+  .skill-head h3{margin:0}
+  .skill-icon{flex:none;width:32px;height:32px;border-radius:8px;background:var(--surface2);color:var(--ink);display:grid;place-items:center}
+  .skill ul{margin:10px 0 14px;padding-left:18px;color:var(--muted);font-size:14px}
   .skill li{margin:5px 0}
+  .proof{margin-top:auto;border-top:1px dashed var(--line);padding-top:12px}
+  .proof-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .proof-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .proof-link{appearance:none;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;padding:6px 9px;min-height:30px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+  .proof-link:hover{border-color:var(--accent);color:var(--accent-ink)}
+  .proof-link:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
   .bar-row{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
   .bar-row p{color:var(--muted);font-size:14px;margin:4px 0 0}
   /* RESUME / CONTACT */
@@ -307,14 +316,71 @@
   <section class="view" id="view-skills" aria-label="Skills">
     <p class="kicker">Skills</p>
     <h1 style="font-size:clamp(28px,4vw,40px)">What I can actually do in the lab.</h1>
-    <p class="lede" style="margin-bottom:22px">Grouped the way I use them on projects — design it, wire it, code it, print it, test it.</p>
+    <p class="lede" style="margin-bottom:22px">Grouped the way I use them on projects — design it, wire it, code it, make it, automate it, test it.</p>
     <div class="skill-grid">
-      <div class="skill"><h3>🛠 Design &amp; CAD</h3><ul><li>Mechanical design for handheld / enclosure-scale devices</li><li>Design for 3D printing — tolerances, fits, iteration</li><li>BOM building and component selection under budget + policy constraints</li></ul></div>
-      <div class="skill"><h3>⚡ Embedded &amp; Electronics</h3><ul><li>ESP32 (WROOM-32, XIAO ESP32-S3) firmware in Arduino / C</li><li>Sensors: IMU (LSM6DSOX), DHT climate sensing</li><li>Enterprise Wi-Fi debugging — WPA2-Enterprise, PEAP / MSCHAPv2 on eduroam</li><li>Battery systems: 1S Li-ion, protection boards, contact charging</li></ul></div>
-      <div class="skill"><h3>🎛 Controls &amp; Software</h3><ul><li>Servo actuation and stabilization concepts for 4–9 Hz disturbance rejection</li><li>Live web dashboards — JSON polling, history charts, gauges</li><li>Rotary-encoder UI (EC11) + round LCD menu systems</li><li>IR capture / replay for closed-loop fan control</li></ul></div>
-      <div class="skill"><h3>🏭 Manufacturing</h3><ul><li>SolidWorks CAD + FEA — 10 FEA iterations across 3 materials on the control arm bracket (FoS 1.5); motion analysis for the balancing beam cart</li><li>CAM + CNC machining — HSMWorks toolpaths for the bracket; Haas Mini Mills and manual mill work in ME345</li><li>Laser cutting, water jet, and machine shop tools; DFM on every project</li><li>Quality — SPC (X-bar/R charts, Cp/Cpk), root-cause analysis, P&amp;ID verification</li></ul></div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></span><h3>Design &amp; CAD</h3></div>
+        <ul>
+          <li>CAD in SolidWorks, Onshape, and Fusion 360 — handheld devices, enclosures, brackets, and furniture-scale parts</li>
+          <li>SolidWorks FEA — 10 FEA iterations across 3 materials on the control arm bracket (FoS 1.5)</li>
+          <li>SolidWorks motion analysis — balancing beam cart tipping check matched theory at ~32.22 in/s²; X/Y axis simulation for the claw machine</li>
+          <li>Design for Manufacturing (DFM) and design for 3D printing — tolerances, fits, single-setup machining — plus BOM building and component selection under budget + policy constraints</li>
+        </ul>
+        <div class="proof"><span class="proof-label">Proof</span><div class="proof-links"><button type="button" class="proof-link" data-project="bracket">Control Arm Bracket</button><button type="button" class="proof-link" data-project="utensil">Self-Stabilizing Utensil</button><button type="button" class="proof-link" data-project="shelf">HPC Hygiene Product Station</button><button type="button" class="proof-link" data-project="cart">Balancing Beam Cart</button></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="10" y="10" width="4" height="4"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><h3>Embedded &amp; Electronics</h3></div>
+        <ul>
+          <li>ESP32 (WROOM-32, XIAO ESP32-S3) and Arduino (Nano, Uno) firmware in Arduino / C/C++</li>
+          <li>Sensors: IMU (LSM6DSOX) accelerometer / gyroscope sensing for tremor-band motion</li>
+          <li>Actuator drive — servos and stepper motors, from the utensil's stabilization servo to the claw machine's pulley Z axis</li>
+          <li>Battery systems: 1S Li-ion, protection boards, contact charging — cylindrical cells only, no LiPo pouches on campus</li>
+          <li>Enterprise Wi-Fi debugging — WPA2-Enterprise, PEAP / MSCHAPv2 on eduroam</li>
+        </ul>
+        <div class="proof"><span class="proof-label">Proof</span><div class="proof-links"><button type="button" class="proof-link" data-project="utensil">Self-Stabilizing Utensil</button><button type="button" class="proof-link" data-project="claw">ME360 Claw Machine</button><button type="button" class="proof-link" data-project="cart">Balancing Beam Cart</button></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h9M18 6h3M3 12h3M12 12h9M3 18h11M20 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><h3>Controls &amp; Software</h3></div>
+        <ul>
+          <li>Servo actuation and stabilization concepts for 4–9 Hz disturbance rejection</li>
+          <li>Embedded C/C++ firmware — IMU sampling and servo response in one control loop on ESP32 / Arduino</li>
+          <li>Actuator selection by spec — a speed-spec'd micro servo for the v2 utensil after v1's torque-first pick proved too slow</li>
+          <li>Joystick + drop-button interface for a 3.5-DOF motion system — X/Y stages, stepper Z, gear-linked servo claw</li>
+        </ul>
+        <div class="proof"><span class="proof-label">Proof</span><div class="proof-links"><button type="button" class="proof-link" data-project="utensil">Self-Stabilizing Utensil</button><button type="button" class="proof-link" data-project="claw">ME360 Claw Machine</button></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l5 3v-3l5 3V5h4v16"/></svg></span><h3>Manufacturing &amp; Fabrication</h3></div>
+        <ul>
+          <li>CAM + CNC machining — HSMWorks toolpaths for the bracket; Haas Mini Mills and manual mill work in ME345</li>
+          <li>3D printing on the Bambu Lab P1S — utensil housings, cart wheels and brackets, tuned for printability and weight</li>
+          <li>HDPE machining — CAM Flow toolpath with a 1/4″ ball end mill and 0.0625″ step-over for smooth channels</li>
+          <li>Laser cutting, water jet, and machine shop tools — laser-cut claw-machine base and prize chute, cart platform</li>
+        </ul>
+        <div class="proof"><span class="proof-label">Proof</span><div class="proof-links"><button type="button" class="proof-link" data-project="bracket">Control Arm Bracket</button><button type="button" class="proof-link" data-project="mfgcell">Manufacturing Cell</button><button type="button" class="proof-link" data-project="claw">ME360 Claw Machine</button></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="12" cy="19" r="2.5"/><path d="M7.5 5h9M6 7l4.5 9.5M18 7l-4.5 9.5"/></svg></span><h3>Automation &amp; Cell Systems</h3></div>
+        <ul>
+          <li>Flexible manufacturing cell programming — a material transport loop with 3 stations: 2 stations with a robot arm and CNC mill, and 1 assembly station with a robot arm</li>
+          <li>Python — the BUMES (Python MES) program coordinating the cell, with UR5 robots (Edie, Mary, Rosie) milling and assembling in parallel while AGVs rotate</li>
+          <li>Tolerance stack-up for robotic assembly — worst case ~0.039″, with chamfers and a −0.05″ connection gap for reliable assembly</li>
+          <li>Scheduling, lean (Toyota Production System), and cost analysis for the cell</li>
+        </ul>
+        <div class="proof"><span class="proof-label">Proof</span><div class="proof-links"><button type="button" class="proof-link" data-project="mfgcell">Automated Flexible Manufacturing Cell</button></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-head"><span class="skill-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span><h3>Test, Quality &amp; Validation</h3></div>
+        <ul>
+          <li>Root-cause analysis (RCA) — Excel return tracker covering 10 SKUs and 38 failure classifications across 250+ analyzed units at SharkNinja, plus teardowns of field returns</li>
+          <li>SPC (X-bar/R charts, Cp/Cpk) — and 10+ production-line fixes implemented with manufacturing quality teams in China</li>
+          <li>Test rigs &amp; user testing — a custom wind-load test rig for competitor benchmarking; consumer satisfaction index testing at SharkNinja</li>
+          <li>P&amp;ID verification and inspection check sheets — Eversource LNG facility installation checks</li>
+          <li>Prototype validation — 30 test trials on the v1 spoon (69.23% rotational spillage reduction); cart verified over 18 ft in 18.82 s without tipping</li>
+        </ul>
+        <div class="proof"><span class="proof-label">Proof</span><div class="proof-links"><button type="button" class="proof-link" data-goto="resume">Résumé — SharkNinja &amp; Eversource</button><button type="button" class="proof-link" data-project="utensil">Self-Stabilizing Utensil</button><button type="button" class="proof-link" data-project="cart">Balancing Beam Cart</button></div></div>
+      </div>
     </div>
-    <div class="bar-row"><h3>Tools on the bench right now</h3><p>Bambu Lab P1S · Arduino Uno R3 + starter kit (28BYJ-48 stepper / ULN2003) · ESP32 DevKit (CP2102) · Soldering + hand tools · Git / GitHub Pages for this site.</p></div>
   </section>
 
   <!-- RESUME -->
@@ -465,24 +531,16 @@
   <!-- CONTACT -->
   <section class="view" id="view-contact" aria-label="Contact">
     <p class="kicker">Contact</p>
-    <h1 style="font-size:clamp(28px,4vw,40px)">Let’s talk engineering.</h1>
-    <p class="lede" style="margin-bottom:22px">Best for internships, post-graduation roles (graduating spring 2027), and project conversations — especially EVs and mechatronics.</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Contact me.</h1>
+    <p class="lede" style="margin-bottom:22px">For opportunities or questions about my work.</p>
     <div class="two">
       <div class="panel">
         <div class="link-row"><div><b>Email</b><small>rahulkumar314.rk@gmail.com</small></div><a class="btn ghost" href="mailto:rahulkumar314.rk@gmail.com">Email me</a></div>
         <div class="link-row"><div><b>LinkedIn</b><small>linkedin.com/in/rahulkumar314</small></div><a class="btn ghost" href="https://linkedin.com/in/rahulkumar314" target="_blank" rel="noopener">View profile ↗</a></div>
-        <div class="link-row"><div><b>GitHub</b><small>Add your github.com profile link</small></div><span class="tag">TO ADD</span></div>
-        <p class="note">Email and LinkedIn are live above. The GitHub profile link is still to add.</p>
       </div>
       <div class="panel">
-        <h3>What I’m interested in</h3>
-        <ul>
-          <li>Mechanical design roles in EV development</li>
-          <li>Mechatronics / electromechanical product work</li>
-          <li>Test, fixtures, and hardware validation</li>
-        </ul>
-        <h3 style="margin-top:16px">Based in</h3>
-        <p>Boston, MA — Boston University.</p>
+        <h3>Based in</h3>
+        <p>Boston, MA</p>
       </div>
     </div>
   </section>
